@@ -136,10 +136,16 @@ namespace View.Helpers
                 label.Text = "Koristite zapetu umesto tacke za decimalne brojeve";
                 return false;
             }
+            
             try
             {
-                double.Parse(txt.Text);
+                double k=double.Parse(txt.Text);
                 //Double.TryParse(txt.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out _);
+                if (k < 0)
+                {
+                    label.Text = "Morate uneti cenu koja je pozitivna";
+                    return false;
+                }
                 return true;
             }
             catch (Exception)

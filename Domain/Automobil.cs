@@ -59,7 +59,7 @@ namespace Domain
 
         public override string ToString()
         {
-            return $"{Model.Marka.Naziv} {Model.Naziv} {BrojSasije}";
+            return $"{Model.Marka.Naziv} {Model.Naziv} {Registracija}";
         }
 
         private string CommaConversion()
