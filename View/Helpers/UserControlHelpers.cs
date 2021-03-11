@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace View.Helpers
 {
@@ -118,6 +119,11 @@ namespace View.Helpers
             if (txt.Text.Length != 17)
             {
                 label.Text = "Broj sasije se sastoji od 17 karaktera";
+                return false;
+            }
+            if (!Regex.IsMatch(txt.Text, @"^[A-Z0-9]+$"))
+            {
+                label.Text = "Broj sasije se sastoji samo iz brojeva i velikih slova";
                 return false;
             }
             return true;
