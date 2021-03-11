@@ -37,7 +37,7 @@ namespace View.Controller
             {
                 Zaposleni z = Communication.Communication.Instance.Login(txtKorisnickoIme.Text, txtLozinka.Text);
                 MainCoordinator.Instance.Zaposleni = z;
-                MessageBox.Show($"Korisnik {z.Ime} {z.Prezime} se uspesno prijavio!");
+                MessageBox.Show($"Zaposleni: {z.Ime} {z.Prezime} se ulogovao");
                 MainCoordinator.Instance.OpenMainForm();
                 frmLogin.Dispose();
             }

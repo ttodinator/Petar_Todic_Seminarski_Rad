@@ -32,6 +32,7 @@ namespace Server
             this.btnStartServer = new System.Windows.Forms.Button();
             this.btnStopServer = new System.Windows.Forms.Button();
             this.dgvZaposleni = new System.Windows.Forms.DataGridView();
+            this.lblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaposleni)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,11 +66,21 @@ namespace Server
             this.dgvZaposleni.Size = new System.Drawing.Size(641, 264);
             this.dgvZaposleni.TabIndex = 2;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(285, 69);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 25);
+            this.lblStatus.TabIndex = 3;
+            // 
             // FrmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.dgvZaposleni);
             this.Controls.Add(this.btnStopServer);
             this.Controls.Add(this.btnStartServer);
@@ -78,6 +89,7 @@ namespace Server
             this.Load += new System.EventHandler(this.FrmServer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaposleni)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -86,5 +98,6 @@ namespace Server
         private System.Windows.Forms.Button btnStartServer;
         private System.Windows.Forms.Button btnStopServer;
         private System.Windows.Forms.DataGridView dgvZaposleni;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

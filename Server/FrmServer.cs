@@ -21,6 +21,8 @@ namespace Server
             //s = new Server();
             //s.Start();
             btnStartServer.Enabled = false;
+            lblStatus.Text = "Server je iskljucen";
+            lblStatus.ForeColor = Color.Red;
         }
 
         private void FrmServer_Load(object sender, EventArgs e)
@@ -41,6 +43,8 @@ namespace Server
                 btnStartServer.Enabled = false;
                 btnStopServer.Enabled = true;
                 s.Zaposlenis.ListChanged += Zaposlenis_ListChanged;
+                lblStatus.Text = "Server je ukljucen";
+                lblStatus.ForeColor = Color.Green;
             }
             catch (SocketException ex)
             {
@@ -58,6 +62,8 @@ namespace Server
             s.Stop();
             btnStartServer.Enabled = true;
             btnStopServer.Enabled = false;
+            lblStatus.Text = "Server je iskljucen";
+            lblStatus.ForeColor = Color.Red;
         }
     }
 }

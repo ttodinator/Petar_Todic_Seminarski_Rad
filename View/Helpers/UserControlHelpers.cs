@@ -86,14 +86,24 @@ namespace View.Helpers
                 }
             }
 
-            for (int i = 2; i < 7; i++)
+            for (int i = 2; i < 5; i++)
             {
                 if (!char.IsDigit(txt.Text[i]))
                 {
-                    label.Text = "Nakon 2 slova mora da sledi 5 cifara";
+                    label.Text = "Nakon 2 slova mora da sledi 3 cifre";
                     return false;
                 }
             }
+
+            for (int i = 5; i < 7; i++)
+            {
+                if (!char.IsLetter(txt.Text[i]) || char.IsLower(txt.Text[i]))
+                {
+                    label.Text = "Poslednja dva karaktera moraju biti velika slova";
+                    return false;
+                }
+            }
+
             return true;
 
         }
