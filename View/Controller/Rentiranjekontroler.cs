@@ -123,6 +123,10 @@ namespace View.Controller
             }
 
             MessageBox.Show("Rentiranje je uspesno azurirano");
+            stavkeRentiranja.Clear();
+            uCUpdateRentiranje.CbPretraga.DataSource = null;
+            uCUpdateRentiranje.TxtPretragaImePrezime.Text = "";
+            
         }
 
         internal void SearchDatum()
@@ -268,7 +272,7 @@ namespace View.Controller
 
             }
             MessageBox.Show("Rentiranje je uspesno sacuvano");
-
+            stavkeRentiranja.Clear();
         }
 
         internal void UpdateUkupnaCena()
@@ -286,5 +290,6 @@ namespace View.Controller
             }
             return Math.Round(ukupnaCena,2);
         }
+
     }
 }

@@ -67,6 +67,7 @@ namespace View.Controller
                 {
                     Communication.Communication.Instance.SaveAutomobil(a);
                     System.Windows.Forms.MessageBox.Show("Automobil je sacuvan");
+                    ResetForm(uCAddAutomobil);
                 }
                 else
                 {
@@ -93,6 +94,7 @@ namespace View.Controller
             {
                 Communication.Communication.Instance.DeleteAutomobil(a);
                 System.Windows.Forms.MessageBox.Show("Automobil je uspesno obrisan");
+                ResetForm(uCUpdateAutomobil);
             }
             catch (Exception)
             {
@@ -129,6 +131,7 @@ namespace View.Controller
                 };
                 Communication.Communication.Instance.UpdateAutomobil(a);
                 System.Windows.Forms.MessageBox.Show("Automobil uspesno sacuvan");
+                ResetForm(uCUpdateAutomobil);
             }
             catch (Exception)
             {
@@ -236,6 +239,35 @@ namespace View.Controller
             uCAddAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel((Marka)uCAddAutomobil.CbMarka.SelectedItem);
         }
 
+        internal void ResetForm(UCAddAutomobil uCAddAutomobil)
+        {
+            uCAddAutomobil.TxtBrojSasije.Text = "";
+            uCAddAutomobil.TxtRegistracija.Text = "";
+            uCAddAutomobil.TxtCenaPoDanu.Text = "";
+            uCAddAutomobil.LblMarka.Text = "";
+            uCAddAutomobil.LblModel.Text = "";
+            uCAddAutomobil.LblBrojSasije.Text = "";
+            uCAddAutomobil.LblCenaPoDanu.Text = "";
+            uCAddAutomobil.LblRegistracija.Text = "";
+            uCAddAutomobil.LblGodinaProizvodnje.Text = "";
+            uCAddAutomobil.CbModel.DataSource = null;
+
+        }
+
+        internal void ResetForm(UCUpdateAutomobil uCUpdateAutomobil)
+        {
+            uCUpdateAutomobil.TxtBrojSasije.Text = "";
+            uCUpdateAutomobil.TxtRegistracija.Text = "";
+            uCUpdateAutomobil.TxtCenaUpdate.Text = "";
+            uCUpdateAutomobil.TxtRegistracijaUpdate.Text = "";
+            uCUpdateAutomobil.CbModel.DataSource = null;
+            uCUpdateAutomobil.ComboBox.DataSource = null;
+            uCUpdateAutomobil.LblMarka.Text = "";
+            uCUpdateAutomobil.LblModel.Text = "";
+            uCUpdateAutomobil.LblCenaPoDanu.Text = "";
+            uCUpdateAutomobil.LblRegistracija.Text = "";
+            uCUpdateAutomobil.LblGodiste.Text = "";
+        }
 
     }
 }
