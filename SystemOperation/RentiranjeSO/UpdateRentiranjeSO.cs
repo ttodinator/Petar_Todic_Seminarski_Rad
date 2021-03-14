@@ -16,6 +16,12 @@ namespace SystemOperation.RentiranjeSO
             r.WhereValue = $"{r.Id}";
             r.UpdateText = $"JMBG='{r.Musterija.JMBG}',Datum='{r.Datum.ToString("MM/dd/yyyy")}',UkupnaCena={CommaConversion(r.UkupnaCena.ToString())}";
             repository.Update(r);
+            for (int i = 0; i < r.StavkeRentiranja.Count; i++)
+            {
+                r.StavkeRentiranja[i].Rentiranje = r;
+                repository.Save(r.StavkeRentiranja[i]);
+            }
+
         }
 
         private string CommaConversion(string s)

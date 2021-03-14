@@ -16,14 +16,12 @@ namespace SystemOperation.RentiranjeSO
             string k = CommaConversion(r.UkupnaCena.ToString());
             r.InsertValues= $"'{r.Musterija.JMBG}','{r.Datum.ToString("MM/dd/yyyy")}',{k}";
             repository.Save(r);
-            //int ID = repository.GetNewId(entity);
-            /*for (int i = 0; i < r.StavkeRentiranja.Count; i++)
+            r.Id = repository.GetNewId(entity);
+            for (int i = 0; i < r.StavkeRentiranja.Count; i++)
             {
                 r.StavkeRentiranja[i].Rentiranje = r;
-                r.StavkeRentiranja[i].Rentiranje.Id = ID;
-                AddStavkaRentiranjaSO so = new AddStavkaRentiranjaSO();
-                so.ExecuteTemplate(r.StavkeRentiranja[i]);
-            }*/
+                repository.Save(r.StavkeRentiranja[i]);
+            }
             
         }
 

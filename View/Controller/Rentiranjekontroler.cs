@@ -105,7 +105,8 @@ namespace View.Controller
                 Id=RentiranjeId,
                 Musterija = (Musterija)uCUpdateRentiranje.CbMusterijaUpdate.SelectedItem,
                 Datum = DateTime.Now,
-                UkupnaCena = GetUkupnaCena()
+                UkupnaCena = GetUkupnaCena(),
+                StavkeRentiranja=stavkeRentiranja.ToList()
             };
             Communication.Communication.Instance.UpdateRentiranje(r);
 
@@ -116,11 +117,11 @@ namespace View.Controller
                     Communication.Communication.Instance.DeleteStavkaRentiranja(stavkeRentiranjaUpdateDeletion[i]);
                 } 
             }
-            for (int i = 0; i < stavkeRentiranja.Count; i++)
+            /*for (int i = 0; i < stavkeRentiranja.Count; i++)
             {
                 stavkeRentiranja[i].Rentiranje = r;
                 Communication.Communication.Instance.SaveStavkarentiranja(stavkeRentiranja[i]);
-            }
+            }*/
 
             MessageBox.Show("Rentiranje je uspesno azurirano");
             stavkeRentiranja.Clear();
@@ -255,12 +256,13 @@ namespace View.Controller
                 Musterija = (Musterija)uCAddRentiranje.CbMusterija.SelectedItem,
                 Datum = DateTime.Now,
                 //StavkeRentiranja = stavkeRentiranja.ToList(),
-                UkupnaCena=GetUkupnaCena()
+                UkupnaCena=GetUkupnaCena(),
+                StavkeRentiranja=stavkeRentiranja.ToList()
             };
-            Communication.Communication.Instance.SaveRentiranje(r);
-            int ID=Communication.Communication.Instance.GetRentiranjeID(r);
-            r.Id = ID;
-            if (stavkeRentiranja.Count < 1)
+            //Communication.Communication.Instance.SaveRentiranje(r);
+            //int ID=Communication.Communication.Instance.GetRentiranjeID(r);
+            //r.Id = ID;
+            /*if (stavkeRentiranja.Count < 1)
             {
                 MessageBox.Show("Ne postoji nijedna stavka");
                 return;
@@ -271,6 +273,9 @@ namespace View.Controller
                 Communication.Communication.Instance.SaveStavkarentiranja(stavkeRentiranja[i]);
 
             }
+            */
+            //r.StavkeRentiranja = stavkeRentiranja.ToList();
+            Communication.Communication.Instance.SaveRentiranje(r);
             MessageBox.Show("Rentiranje je uspesno sacuvano");
             stavkeRentiranja.Clear();
         }
