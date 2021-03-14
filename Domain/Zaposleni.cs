@@ -14,6 +14,7 @@ namespace Domain
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string KorisnickoIme { get; set; }
+        [Browsable(false)]
         public string Lozinka { get; set; }
 
         [Browsable(false)]
