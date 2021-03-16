@@ -59,6 +59,11 @@ namespace View.Helpers
                 label.Text = "Mora poceti velikim slovom";
                 return false;
             }
+            else if (!txt.Text.All(char.IsLetter))
+            {
+                label.Text = "Mora da sadrzi samo slova";
+                return false;
+            }
             else
             {
                 txt.BackColor = Color.White;

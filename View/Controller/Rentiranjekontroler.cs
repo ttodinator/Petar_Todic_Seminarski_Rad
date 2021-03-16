@@ -62,6 +62,7 @@ namespace View.Controller
                 };
                 rentiranja = Communication.Communication.Instance.SearchRentiranjePrezime(m);
                 uCUpdateRentiranje.CbPretraga.DataSource = rentiranja;
+                MessageBox.Show("Postoji rentiranje sa datim prezimenom");
             }
             catch (Exception)
             {
@@ -141,7 +142,7 @@ namespace View.Controller
                 rentiranja = Communication.Communication.Instance.SearchRentiranjeDatum(r);
                 uCUpdateRentiranje.CbPretraga.DataSource = rentiranja;
                 //uCUpdateRentiranje.CbPretraga.DataSource = Communication.Communication.Instance.SearchRentiranjeDatum(r);
-
+                MessageBox.Show("Postoji rentiranja za taj dan");
             }
             catch (Exception)
             {
@@ -163,6 +164,7 @@ namespace View.Controller
             uCUpdateRentiranje.DgvStavkeRentiranja.DataSource = stavkeRentiranja;
             //uCUpdateRentiranje.DgvStavkeRentiranja.DataSource = Communication.Communication.Instance.SearchStavkaRentiranja(r.Id);
             uCUpdateRentiranje.Refresh();
+            MessageBox.Show("Uspesno ucitano rentiranje");
         }
 
         internal void InitUCUpdateRentiranje()
@@ -183,7 +185,7 @@ namespace View.Controller
                 rentiranja = Communication.Communication.Instance.SearchRentiranjeIme(m);
                 uCUpdateRentiranje.CbPretraga.DataSource = rentiranja;
                 //uCUpdateRentiranje.CbPretraga.DataSource = Communication.Communication.Instance.SearchRentiranjeIme(m);
-
+                MessageBox.Show("Postoji rentiranje sa zadatim imenom");
             }
             catch (Exception)
             {

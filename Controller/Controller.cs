@@ -135,12 +135,12 @@ namespace Controller
             return so.Result;
         }
 
-        public object GetRentiranjeID(Rentiranje rentiranje)
+        /*public object GetRentiranjeID(Rentiranje rentiranje)
         {
             GetRentiranjeIDSO so = new GetRentiranjeIDSO();
             so.ExecuteTemplate(rentiranje);
             return so.Result;
-        }
+        }*/
 
         public object SearchMusterijaPrezime(Musterija musterija)
         {

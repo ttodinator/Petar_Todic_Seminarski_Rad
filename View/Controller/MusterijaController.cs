@@ -102,6 +102,7 @@ namespace View.Controller
             try
             {
                 uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterijaIme(m);
+                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
             }
             catch (Exception)
             {
@@ -113,11 +114,13 @@ namespace View.Controller
         internal void UpdateFill(UCUpdateMusterija uCUpdateMusterija)
         {
             Musterija m = (Musterija)uCUpdateMusterija.CbMusterije.SelectedItem;
+            
             uCUpdateMusterija.TxtImeUpdate.Text = m.Ime;
             uCUpdateMusterija.TxtPrezimeUpdate.Text = m.Prezime;
             uCUpdateMusterija.TxtBrojTelefonaUpdate.Text = m.BrojTelefona;
             uCUpdateMusterija.DtpDatumUpdate.Value = m.DatumRodjenja;
             uCUpdateMusterija.JMBG = m.JMBG;
+            System.Windows.Forms.MessageBox.Show("Ucitana musterija");
         }
 
         internal void SearchMusterijaIme(UCUpdateMusterija uCUpdateMusterija)
@@ -130,6 +133,7 @@ namespace View.Controller
             try
             {
                 uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterijaIme(m);
+                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
             }
             catch (Exception)
             {
@@ -148,6 +152,7 @@ namespace View.Controller
             try
             {
                 uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterijaPrezime(m);
+                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
             }
             catch (Exception)
             {
@@ -166,6 +171,7 @@ namespace View.Controller
             try
             {
                 uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterijaPrezime(m);
+                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
             }
             catch (Exception)
             {

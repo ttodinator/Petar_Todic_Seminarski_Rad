@@ -158,7 +158,8 @@ namespace View.Controller
             //uCUpdateAutomobil.CbMarka.Text = a.Model.Marka.ToString();
             //uCUpdateAutomobil.CbModel.Text = a.Model.ToString();
             uCUpdateAutomobil.BrojSasije = a.BrojSasije;
-            
+            System.Windows.Forms.MessageBox.Show("Ucitani su podaci o automobilu");
+
         }
 
         internal void SearchAutomobilBrSasije(UCSearchAutomobil uCSearchAutomobil)
@@ -170,6 +171,7 @@ namespace View.Controller
             try
             {
                 uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobilBrSasije(a);
+                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatim brojem sasije");
             }
             catch (Exception)
             {
@@ -187,6 +189,7 @@ namespace View.Controller
             try
             {
                 uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobilRegistracija(a);
+                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatom registracija");
             }
             catch (Exception)
             {
@@ -205,6 +208,7 @@ namespace View.Controller
             try
             {
                 uCUpdateAutomobil.ComboBox.DataSource = Communication.Communication.Instance.SearchAutomobilRegistracija(a);
+                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatom registracijom");
             }
             catch (Exception)
             {
@@ -224,6 +228,7 @@ namespace View.Controller
             {
                 List<Automobil> automobili= Communication.Communication.Instance.SearchAutomobilBrSasije(a);
                 uCUpdateAutomobil.ComboBox.DataSource = automobili;
+                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatim brojem sasije");
 
             }
             catch (Exception)

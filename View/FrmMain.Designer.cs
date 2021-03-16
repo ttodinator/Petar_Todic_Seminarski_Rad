@@ -29,6 +29,7 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.musterijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novaMusterijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@ namespace View
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1086, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1086, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,27 +67,27 @@ namespace View
             this.pretragaMusterijeToolStripMenuItem,
             this.izmenaMusterijeToolStripMenuItem});
             this.musterijaToolStripMenuItem.Name = "musterijaToolStripMenuItem";
-            this.musterijaToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.musterijaToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.musterijaToolStripMenuItem.Text = "Musterija";
             // 
             // novaMusterijaToolStripMenuItem
             // 
             this.novaMusterijaToolStripMenuItem.Name = "novaMusterijaToolStripMenuItem";
-            this.novaMusterijaToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.novaMusterijaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.novaMusterijaToolStripMenuItem.Text = "Nova musterija";
             this.novaMusterijaToolStripMenuItem.Click += new System.EventHandler(this.novaMusterijaToolStripMenuItem_Click);
             // 
             // pretragaMusterijeToolStripMenuItem
             // 
             this.pretragaMusterijeToolStripMenuItem.Name = "pretragaMusterijeToolStripMenuItem";
-            this.pretragaMusterijeToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.pretragaMusterijeToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.pretragaMusterijeToolStripMenuItem.Text = "Pretraga musterije";
             this.pretragaMusterijeToolStripMenuItem.Click += new System.EventHandler(this.pretragaMusterijeToolStripMenuItem_Click);
             // 
             // izmenaMusterijeToolStripMenuItem
             // 
             this.izmenaMusterijeToolStripMenuItem.Name = "izmenaMusterijeToolStripMenuItem";
-            this.izmenaMusterijeToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.izmenaMusterijeToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.izmenaMusterijeToolStripMenuItem.Text = "Izmena musterije";
             this.izmenaMusterijeToolStripMenuItem.Click += new System.EventHandler(this.izmenaMusterijeToolStripMenuItem_Click);
             // 
@@ -97,27 +98,27 @@ namespace View
             this.pretragaAutomobilaToolStripMenuItem,
             this.izmenaAutomobilaToolStripMenuItem});
             this.automobilToolStripMenuItem.Name = "automobilToolStripMenuItem";
-            this.automobilToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
+            this.automobilToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.automobilToolStripMenuItem.Text = "Automobil";
             // 
             // novAutomobilToolStripMenuItem
             // 
             this.novAutomobilToolStripMenuItem.Name = "novAutomobilToolStripMenuItem";
-            this.novAutomobilToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.novAutomobilToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.novAutomobilToolStripMenuItem.Text = "Nov automobil";
             this.novAutomobilToolStripMenuItem.Click += new System.EventHandler(this.novAutomobilToolStripMenuItem_Click);
             // 
             // pretragaAutomobilaToolStripMenuItem
             // 
             this.pretragaAutomobilaToolStripMenuItem.Name = "pretragaAutomobilaToolStripMenuItem";
-            this.pretragaAutomobilaToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.pretragaAutomobilaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.pretragaAutomobilaToolStripMenuItem.Text = "Pretraga automobila";
             this.pretragaAutomobilaToolStripMenuItem.Click += new System.EventHandler(this.pretragaAutomobilaToolStripMenuItem_Click);
             // 
             // izmenaAutomobilaToolStripMenuItem
             // 
             this.izmenaAutomobilaToolStripMenuItem.Name = "izmenaAutomobilaToolStripMenuItem";
-            this.izmenaAutomobilaToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.izmenaAutomobilaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.izmenaAutomobilaToolStripMenuItem.Text = "Izmena automobila";
             this.izmenaAutomobilaToolStripMenuItem.Click += new System.EventHandler(this.izmenaAutomobilaToolStripMenuItem_Click);
             // 
@@ -127,25 +128,27 @@ namespace View
             this.novoRentiranjeToolStripMenuItem,
             this.izmenaRentiranjaToolStripMenuItem});
             this.rentiranjeToolStripMenuItem.Name = "rentiranjeToolStripMenuItem";
-            this.rentiranjeToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.rentiranjeToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.rentiranjeToolStripMenuItem.Text = "Rentiranje";
             // 
             // novoRentiranjeToolStripMenuItem
             // 
             this.novoRentiranjeToolStripMenuItem.Name = "novoRentiranjeToolStripMenuItem";
-            this.novoRentiranjeToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.novoRentiranjeToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.novoRentiranjeToolStripMenuItem.Text = "Novo rentiranje";
             this.novoRentiranjeToolStripMenuItem.Click += new System.EventHandler(this.novoRentiranjeToolStripMenuItem_Click);
             // 
             // izmenaRentiranjaToolStripMenuItem
             // 
             this.izmenaRentiranjaToolStripMenuItem.Name = "izmenaRentiranjaToolStripMenuItem";
-            this.izmenaRentiranjaToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.izmenaRentiranjaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.izmenaRentiranjaToolStripMenuItem.Text = "Izmena rentiranja";
             this.izmenaRentiranjaToolStripMenuItem.Click += new System.EventHandler(this.izmenaRentiranjaToolStripMenuItem_Click);
             // 
             // pnlMainContainer
             // 
+            this.pnlMainContainer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMainContainer.BackgroundImage")));
+            this.pnlMainContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnlMainContainer.Location = new System.Drawing.Point(12, 39);
             this.pnlMainContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMainContainer.Name = "pnlMainContainer";
@@ -154,7 +157,7 @@ namespace View
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 815);
             this.Controls.Add(this.pnlMainContainer);

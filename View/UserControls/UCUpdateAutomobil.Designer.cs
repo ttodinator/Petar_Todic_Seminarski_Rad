@@ -66,39 +66,34 @@ namespace View.UserControls
             this.groupBox2.Controls.Add(this.txtBrojSasije);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnSearchBrSasije);
-            this.groupBox2.Location = new System.Drawing.Point(4, 107);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(3, 87);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(452, 119);
+            this.groupBox2.Size = new System.Drawing.Size(339, 97);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pretraga po broju sasije";
             // 
             // txtBrojSasije
             // 
-            this.txtBrojSasije.Location = new System.Drawing.Point(103, 58);
-            this.txtBrojSasije.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBrojSasije.Location = new System.Drawing.Point(77, 47);
             this.txtBrojSasije.Name = "txtBrojSasije";
-            this.txtBrojSasije.Size = new System.Drawing.Size(217, 22);
+            this.txtBrojSasije.Size = new System.Drawing.Size(164, 20);
             this.txtBrojSasije.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 62);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 17);
+            this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Broj sasije:";
             // 
             // btnSearchBrSasije
             // 
-            this.btnSearchBrSasije.Location = new System.Drawing.Point(339, 39);
-            this.btnSearchBrSasije.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchBrSasije.Location = new System.Drawing.Point(254, 32);
             this.btnSearchBrSasije.Name = "btnSearchBrSasije";
-            this.btnSearchBrSasije.Size = new System.Drawing.Size(100, 60);
+            this.btnSearchBrSasije.Size = new System.Drawing.Size(75, 49);
             this.btnSearchBrSasije.TabIndex = 0;
             this.btnSearchBrSasije.Text = "Pretrazi";
             this.btnSearchBrSasije.UseVisualStyleBackColor = true;
@@ -109,39 +104,34 @@ namespace View.UserControls
             this.groupBox1.Controls.Add(this.txtRegistracija);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSearchRegistracija);
-            this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(452, 95);
+            this.groupBox1.Size = new System.Drawing.Size(339, 77);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga po registraciji";
             // 
             // txtRegistracija
             // 
-            this.txtRegistracija.Location = new System.Drawing.Point(103, 46);
-            this.txtRegistracija.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRegistracija.Location = new System.Drawing.Point(77, 37);
             this.txtRegistracija.Name = "txtRegistracija";
-            this.txtRegistracija.Size = new System.Drawing.Size(217, 22);
+            this.txtRegistracija.Size = new System.Drawing.Size(164, 20);
             this.txtRegistracija.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Registracija:";
             // 
             // btnSearchRegistracija
             // 
-            this.btnSearchRegistracija.Location = new System.Drawing.Point(339, 27);
-            this.btnSearchRegistracija.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchRegistracija.Location = new System.Drawing.Point(254, 22);
             this.btnSearchRegistracija.Name = "btnSearchRegistracija";
-            this.btnSearchRegistracija.Size = new System.Drawing.Size(100, 60);
+            this.btnSearchRegistracija.Size = new System.Drawing.Size(75, 49);
             this.btnSearchRegistracija.TabIndex = 0;
             this.btnSearchRegistracija.Text = "Pretrazi";
             this.btnSearchRegistracija.UseVisualStyleBackColor = true;
@@ -150,21 +140,21 @@ namespace View.UserControls
             // cbAutomobili
             // 
             this.cbAutomobili.FormattingEnabled = true;
-            this.cbAutomobili.Location = new System.Drawing.Point(5, 37);
-            this.cbAutomobili.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbAutomobili.Location = new System.Drawing.Point(4, 30);
+            this.cbAutomobili.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbAutomobili.Name = "cbAutomobili";
-            this.cbAutomobili.Size = new System.Drawing.Size(284, 24);
+            this.cbAutomobili.Size = new System.Drawing.Size(214, 21);
             this.cbAutomobili.TabIndex = 6;
             this.cbAutomobili.SelectionChangeCommitted += new System.EventHandler(this.cbAutomobili_SelectionChangeCommitted);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbAutomobili);
-            this.groupBox3.Location = new System.Drawing.Point(481, 14);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Location = new System.Drawing.Point(361, 11);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(296, 213);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(222, 173);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Automobil";
@@ -172,84 +162,75 @@ namespace View.UserControls
             // cbMarkaUpdate
             // 
             this.cbMarkaUpdate.FormattingEnabled = true;
-            this.cbMarkaUpdate.Location = new System.Drawing.Point(133, 279);
-            this.cbMarkaUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.cbMarkaUpdate.Location = new System.Drawing.Point(100, 227);
             this.cbMarkaUpdate.Name = "cbMarkaUpdate";
-            this.cbMarkaUpdate.Size = new System.Drawing.Size(191, 24);
+            this.cbMarkaUpdate.Size = new System.Drawing.Size(144, 21);
             this.cbMarkaUpdate.TabIndex = 8;
             this.cbMarkaUpdate.SelectionChangeCommitted += new System.EventHandler(this.cbMarkaUpdate_SelectionChangeCommitted);
             // 
             // cbModelUpdate
             // 
             this.cbModelUpdate.FormattingEnabled = true;
-            this.cbModelUpdate.Location = new System.Drawing.Point(133, 335);
-            this.cbModelUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.cbModelUpdate.Location = new System.Drawing.Point(100, 272);
             this.cbModelUpdate.Name = "cbModelUpdate";
-            this.cbModelUpdate.Size = new System.Drawing.Size(191, 24);
+            this.cbModelUpdate.Size = new System.Drawing.Size(144, 21);
             this.cbModelUpdate.TabIndex = 9;
             // 
             // txtRegistracijaUpdate
             // 
-            this.txtRegistracijaUpdate.Location = new System.Drawing.Point(133, 385);
-            this.txtRegistracijaUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRegistracijaUpdate.Location = new System.Drawing.Point(100, 313);
             this.txtRegistracijaUpdate.Name = "txtRegistracijaUpdate";
-            this.txtRegistracijaUpdate.Size = new System.Drawing.Size(191, 22);
+            this.txtRegistracijaUpdate.Size = new System.Drawing.Size(144, 20);
             this.txtRegistracijaUpdate.TabIndex = 11;
             // 
             // txtCenaUpdate
             // 
-            this.txtCenaUpdate.Location = new System.Drawing.Point(133, 479);
-            this.txtCenaUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCenaUpdate.Location = new System.Drawing.Point(100, 389);
             this.txtCenaUpdate.Name = "txtCenaUpdate";
-            this.txtCenaUpdate.Size = new System.Drawing.Size(191, 22);
+            this.txtCenaUpdate.Size = new System.Drawing.Size(144, 20);
             this.txtCenaUpdate.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 282);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(9, 229);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 17);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Marka:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 388);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(9, 315);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 17);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "Registracija:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 439);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(9, 357);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
+            this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Godiste:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 482);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(9, 392);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 17);
+            this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 17;
             this.label7.Text = "Cena po danu";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(655, 436);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Location = new System.Drawing.Point(491, 354);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 60);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 49);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Izmeni automobil";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -258,28 +239,25 @@ namespace View.UserControls
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 338);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(9, 275);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 17);
+            this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 20;
             this.label6.Text = "Model:";
             // 
             // cbGodisteUpdate
             // 
             this.cbGodisteUpdate.FormattingEnabled = true;
-            this.cbGodisteUpdate.Location = new System.Drawing.Point(133, 436);
-            this.cbGodisteUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.cbGodisteUpdate.Location = new System.Drawing.Point(100, 354);
             this.cbGodisteUpdate.Name = "cbGodisteUpdate";
-            this.cbGodisteUpdate.Size = new System.Drawing.Size(191, 24);
+            this.cbGodisteUpdate.Size = new System.Drawing.Size(144, 21);
             this.cbGodisteUpdate.TabIndex = 19;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(655, 279);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Location = new System.Drawing.Point(491, 227);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 60);
+            this.btnDelete.Size = new System.Drawing.Size(75, 49);
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "Obrisi automobil";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -288,51 +266,61 @@ namespace View.UserControls
             // lblMarka
             // 
             this.lblMarka.AutoSize = true;
-            this.lblMarka.BackColor = System.Drawing.Color.Red;
-            this.lblMarka.Location = new System.Drawing.Point(361, 285);
+            this.lblMarka.BackColor = System.Drawing.SystemColors.Control;
+            this.lblMarka.ForeColor = System.Drawing.Color.Red;
+            this.lblMarka.Location = new System.Drawing.Point(271, 232);
+            this.lblMarka.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMarka.Name = "lblMarka";
-            this.lblMarka.Size = new System.Drawing.Size(0, 17);
+            this.lblMarka.Size = new System.Drawing.Size(0, 13);
             this.lblMarka.TabIndex = 22;
             // 
             // lblModel
             // 
             this.lblModel.AutoSize = true;
-            this.lblModel.BackColor = System.Drawing.Color.Red;
-            this.lblModel.Location = new System.Drawing.Point(361, 338);
+            this.lblModel.BackColor = System.Drawing.SystemColors.Control;
+            this.lblModel.ForeColor = System.Drawing.Color.Red;
+            this.lblModel.Location = new System.Drawing.Point(271, 275);
+            this.lblModel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(0, 17);
+            this.lblModel.Size = new System.Drawing.Size(0, 13);
             this.lblModel.TabIndex = 23;
             // 
             // lblRegistracija
             // 
             this.lblRegistracija.AutoSize = true;
-            this.lblRegistracija.BackColor = System.Drawing.Color.Red;
-            this.lblRegistracija.Location = new System.Drawing.Point(361, 388);
+            this.lblRegistracija.BackColor = System.Drawing.SystemColors.Control;
+            this.lblRegistracija.ForeColor = System.Drawing.Color.Red;
+            this.lblRegistracija.Location = new System.Drawing.Point(271, 315);
+            this.lblRegistracija.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegistracija.Name = "lblRegistracija";
-            this.lblRegistracija.Size = new System.Drawing.Size(0, 17);
+            this.lblRegistracija.Size = new System.Drawing.Size(0, 13);
             this.lblRegistracija.TabIndex = 24;
             // 
             // lblGodiste
             // 
             this.lblGodiste.AutoSize = true;
-            this.lblGodiste.BackColor = System.Drawing.Color.Red;
-            this.lblGodiste.Location = new System.Drawing.Point(361, 439);
+            this.lblGodiste.BackColor = System.Drawing.SystemColors.Control;
+            this.lblGodiste.ForeColor = System.Drawing.Color.Red;
+            this.lblGodiste.Location = new System.Drawing.Point(271, 357);
+            this.lblGodiste.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGodiste.Name = "lblGodiste";
-            this.lblGodiste.Size = new System.Drawing.Size(0, 17);
+            this.lblGodiste.Size = new System.Drawing.Size(0, 13);
             this.lblGodiste.TabIndex = 25;
             // 
             // lblCenaPoDanu
             // 
             this.lblCenaPoDanu.AutoSize = true;
-            this.lblCenaPoDanu.BackColor = System.Drawing.Color.Red;
-            this.lblCenaPoDanu.Location = new System.Drawing.Point(361, 482);
+            this.lblCenaPoDanu.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCenaPoDanu.ForeColor = System.Drawing.Color.Red;
+            this.lblCenaPoDanu.Location = new System.Drawing.Point(271, 392);
+            this.lblCenaPoDanu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCenaPoDanu.Name = "lblCenaPoDanu";
-            this.lblCenaPoDanu.Size = new System.Drawing.Size(0, 17);
+            this.lblCenaPoDanu.Size = new System.Drawing.Size(0, 13);
             this.lblCenaPoDanu.TabIndex = 26;
             // 
             // UCUpdateAutomobil
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblCenaPoDanu);
             this.Controls.Add(this.lblGodiste);
@@ -354,9 +342,9 @@ namespace View.UserControls
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UCUpdateAutomobil";
-            this.Size = new System.Drawing.Size(799, 622);
+            this.Size = new System.Drawing.Size(599, 505);
             this.Load += new System.EventHandler(this.UCUpdateAutomobil_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

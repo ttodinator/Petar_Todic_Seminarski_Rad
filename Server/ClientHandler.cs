@@ -89,9 +89,9 @@ namespace Server
                 case Operation.GetAllPolisa:
                     response.Result = Controller.Controller.Instance.GetAllPolisa();
                     break;
-                case Operation.GetRentiranjeID:
+                /*case Operation.GetRentiranjeID:
                     response.Result = Controller.Controller.Instance.GetRentiranjeID((Rentiranje)request.RequestObject);
-                    break;
+                    break;*/
                 case Operation.GetAllAutomobil:
                     response.Result = Controller.Controller.Instance.GetAllAutomobil();
                     break;

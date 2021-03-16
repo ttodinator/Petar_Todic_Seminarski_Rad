@@ -63,29 +63,25 @@ namespace View.UserControls
             this.groupBox1.Controls.Add(this.txtIme);
             this.groupBox1.Controls.Add(this.btnIme);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 23);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(15, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(432, 85);
+            this.groupBox1.Size = new System.Drawing.Size(324, 69);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga po imenu";
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(80, 37);
-            this.txtIme.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIme.Location = new System.Drawing.Point(60, 30);
             this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(203, 22);
+            this.txtIme.Size = new System.Drawing.Size(153, 20);
             this.txtIme.TabIndex = 3;
             // 
             // btnIme
             // 
-            this.btnIme.Location = new System.Drawing.Point(292, 34);
-            this.btnIme.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIme.Location = new System.Drawing.Point(219, 28);
             this.btnIme.Name = "btnIme";
-            this.btnIme.Size = new System.Drawing.Size(100, 28);
+            this.btnIme.Size = new System.Drawing.Size(75, 23);
             this.btnIme.TabIndex = 2;
             this.btnIme.Text = "Pretrazi";
             this.btnIme.UseVisualStyleBackColor = true;
@@ -94,20 +90,18 @@ namespace View.UserControls
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 41);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 17);
+            this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Ime:";
             // 
             // cbPretraga
             // 
             this.cbPretraga.FormattingEnabled = true;
-            this.cbPretraga.Location = new System.Drawing.Point(516, 60);
-            this.cbPretraga.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPretraga.Location = new System.Drawing.Point(387, 49);
             this.cbPretraga.Name = "cbPretraga";
-            this.cbPretraga.Size = new System.Drawing.Size(313, 24);
+            this.cbPretraga.Size = new System.Drawing.Size(236, 21);
             this.cbPretraga.TabIndex = 2;
             this.cbPretraga.SelectionChangeCommitted += new System.EventHandler(this.cbPretraga_SelectionChangeCommitted);
             // 
@@ -116,21 +110,18 @@ namespace View.UserControls
             this.groupBox2.Controls.Add(this.btnPrezime);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtPrezime);
-            this.groupBox2.Location = new System.Drawing.Point(20, 139);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(15, 113);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(432, 85);
+            this.groupBox2.Size = new System.Drawing.Size(324, 69);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pretraga po prezimenu";
             // 
             // btnPrezime
             // 
-            this.btnPrezime.Location = new System.Drawing.Point(292, 36);
-            this.btnPrezime.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrezime.Location = new System.Drawing.Point(219, 29);
             this.btnPrezime.Name = "btnPrezime";
-            this.btnPrezime.Size = new System.Drawing.Size(100, 27);
+            this.btnPrezime.Size = new System.Drawing.Size(75, 22);
             this.btnPrezime.TabIndex = 3;
             this.btnPrezime.Text = "Pretrazi";
             this.btnPrezime.UseVisualStyleBackColor = true;
@@ -139,28 +130,25 @@ namespace View.UserControls
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 42);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 17);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Prezime:";
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(80, 38);
-            this.txtPrezime.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrezime.Location = new System.Drawing.Point(60, 31);
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(203, 22);
+            this.txtPrezime.Size = new System.Drawing.Size(153, 20);
             this.txtPrezime.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(512, 23);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(384, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Musterije:";
             // 
@@ -179,119 +167,113 @@ namespace View.UserControls
             this.groupBox3.Controls.Add(this.txtImeUpdate);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(20, 261);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Location = new System.Drawing.Point(15, 212);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(927, 378);
+            this.groupBox3.Size = new System.Drawing.Size(695, 307);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Pretraga po imenu";
+            this.groupBox3.Text = "Podaci o musteriji";
             // 
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
             this.lblDatum.ForeColor = System.Drawing.Color.Red;
-            this.lblDatum.Location = new System.Drawing.Point(362, 185);
+            this.lblDatum.Location = new System.Drawing.Point(272, 150);
+            this.lblDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDatum.Name = "lblDatum";
-            this.lblDatum.Size = new System.Drawing.Size(0, 17);
+            this.lblDatum.Size = new System.Drawing.Size(0, 13);
             this.lblDatum.TabIndex = 13;
             // 
             // lblBrojTelefona
             // 
             this.lblBrojTelefona.AutoSize = true;
             this.lblBrojTelefona.ForeColor = System.Drawing.Color.Red;
-            this.lblBrojTelefona.Location = new System.Drawing.Point(362, 140);
+            this.lblBrojTelefona.Location = new System.Drawing.Point(272, 114);
+            this.lblBrojTelefona.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBrojTelefona.Name = "lblBrojTelefona";
-            this.lblBrojTelefona.Size = new System.Drawing.Size(0, 17);
+            this.lblBrojTelefona.Size = new System.Drawing.Size(0, 13);
             this.lblBrojTelefona.TabIndex = 12;
             // 
             // lblPrezime
             // 
             this.lblPrezime.AutoSize = true;
             this.lblPrezime.ForeColor = System.Drawing.Color.Red;
-            this.lblPrezime.Location = new System.Drawing.Point(362, 90);
+            this.lblPrezime.Location = new System.Drawing.Point(272, 73);
+            this.lblPrezime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(0, 17);
+            this.lblPrezime.Size = new System.Drawing.Size(0, 13);
             this.lblPrezime.TabIndex = 11;
             // 
             // lblIme
             // 
             this.lblIme.AutoSize = true;
             this.lblIme.ForeColor = System.Drawing.Color.Red;
-            this.lblIme.Location = new System.Drawing.Point(362, 40);
+            this.lblIme.Location = new System.Drawing.Point(272, 32);
+            this.lblIme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(0, 17);
+            this.lblIme.Size = new System.Drawing.Size(0, 13);
             this.lblIme.TabIndex = 10;
             // 
             // dtpDatumUpdate
             // 
-            this.dtpDatumUpdate.Location = new System.Drawing.Point(152, 180);
-            this.dtpDatumUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDatumUpdate.Location = new System.Drawing.Point(114, 146);
             this.dtpDatumUpdate.Name = "dtpDatumUpdate";
-            this.dtpDatumUpdate.Size = new System.Drawing.Size(203, 22);
+            this.dtpDatumUpdate.Size = new System.Drawing.Size(153, 20);
             this.dtpDatumUpdate.TabIndex = 9;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 187);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(6, 152);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 17);
+            this.label7.Size = new System.Drawing.Size(78, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "Datum rodjenja";
             // 
             // txtBrojUpdate
             // 
-            this.txtBrojUpdate.Location = new System.Drawing.Point(152, 137);
-            this.txtBrojUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBrojUpdate.Location = new System.Drawing.Point(114, 111);
             this.txtBrojUpdate.Name = "txtBrojUpdate";
-            this.txtBrojUpdate.Size = new System.Drawing.Size(203, 22);
+            this.txtBrojUpdate.Size = new System.Drawing.Size(153, 20);
             this.txtBrojUpdate.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 140);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(6, 114);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 17);
+            this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Broj telefona";
             // 
             // txtPrezimeUpdate
             // 
-            this.txtPrezimeUpdate.Location = new System.Drawing.Point(152, 87);
-            this.txtPrezimeUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrezimeUpdate.Location = new System.Drawing.Point(114, 71);
             this.txtPrezimeUpdate.Name = "txtPrezimeUpdate";
-            this.txtPrezimeUpdate.Size = new System.Drawing.Size(203, 22);
+            this.txtPrezimeUpdate.Size = new System.Drawing.Size(153, 20);
             this.txtPrezimeUpdate.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 91);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(6, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 17);
+            this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Prezime:";
             // 
             // txtImeUpdate
             // 
-            this.txtImeUpdate.Location = new System.Drawing.Point(152, 37);
-            this.txtImeUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtImeUpdate.Location = new System.Drawing.Point(114, 30);
             this.txtImeUpdate.Name = "txtImeUpdate";
-            this.txtImeUpdate.Size = new System.Drawing.Size(203, 22);
+            this.txtImeUpdate.Size = new System.Drawing.Size(153, 20);
             this.txtImeUpdate.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(118, 243);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(88, 197);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 42);
+            this.button1.Size = new System.Drawing.Size(88, 34);
             this.button1.TabIndex = 2;
             this.button1.Text = "Izmeni musteriju";
             this.button1.UseVisualStyleBackColor = true;
@@ -300,25 +282,23 @@ namespace View.UserControls
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 41);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(6, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 17);
+            this.label4.Size = new System.Drawing.Size(27, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Ime:";
             // 
             // UCUpdateMusterija
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbPretraga);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCUpdateMusterija";
-            this.Size = new System.Drawing.Size(976, 831);
+            this.Size = new System.Drawing.Size(732, 675);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
