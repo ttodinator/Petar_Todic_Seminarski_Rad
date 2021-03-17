@@ -32,19 +32,24 @@ namespace View.Controller
                     Ime = UCAddMusterija.TxtIme.Text,
                     Prezime = UCAddMusterija.TxtPrezime.Text,
                     BrojTelefona = UCAddMusterija.TxtBrojTelefona.Text,
-                    DatumRodjenja = UCAddMusterija.DtpDatumRodjenja.Value
+                    DatumRodjenja = UCAddMusterija.DtpDatumRodjenja.Value,
+                    WhereCondition="m.JMBG=",
+                    WhereValue= UCAddMusterija.TxtJMBG.Text
                 };
-                if (Communication.Communication.Instance.SearchMusterijaJMBG(m))
+                List<Musterija> musterijaJMBG;
+                try
+                {
+                    musterijaJMBG = Communication.Communication.Instance.SearchMusterija(m);
+                    System.Windows.Forms.MessageBox.Show("Musterija vec postoji u bazi");
+                    return;
+                }
+                catch (Exception)
                 {
                     Communication.Communication.Instance.SaveMusterija(m);
                     System.Windows.Forms.MessageBox.Show("Musterija uspesno sacuvana");
                     ResetForm(UCAddMusterija);
                 }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Musterija vec postoji u bazi");
-                    return;
-                }
+
                 //Communication.Communication.Instance.SaveMusterija(m);
                 //System.Windows.Forms.MessageBox.Show("Musterija uspesno sacuvana");
                 //ResetForm(UCAddMusterija);
@@ -96,12 +101,15 @@ namespace View.Controller
         {
             Musterija m = new Musterija
             {
-                Ime = uCSearchMusterija.TxtIme.Text
+                Ime = uCSearchMusterija.TxtIme.Text,
+                WhereValue= uCSearchMusterija.TxtIme.Text,
+                WhereCondition = "m.Ime="
+
             };
 
             try
             {
-                uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterijaIme(m);
+                uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterija(m);
                 System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
             }
             catch (Exception)
@@ -127,12 +135,14 @@ namespace View.Controller
         {
             Musterija m = new Musterija
             {
-                Ime = uCUpdateMusterija.TxtIme.Text
+                Ime = uCUpdateMusterija.TxtIme.Text,
+                WhereValue = uCUpdateMusterija.TxtIme.Text,
+                WhereCondition = "m.Ime="
             };
 
             try
             {
-                uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterijaIme(m);
+                uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterija(m);
                 System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
             }
             catch (Exception)
@@ -146,12 +156,14 @@ namespace View.Controller
         {
             Musterija m = new Musterija
             {
-                Prezime = uCSearchMusterija.TxtPrezime.Text
+                Prezime = uCSearchMusterija.TxtPrezime.Text,
+                WhereValue = uCSearchMusterija.TxtPrezime.Text,
+                WhereCondition = "m.Prezime="
             };
 
             try
             {
-                uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterijaPrezime(m);
+                uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterija(m);
                 System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
             }
             catch (Exception)
@@ -165,12 +177,14 @@ namespace View.Controller
         {
             Musterija m = new Musterija
             {
-                Prezime = uCUpdateMusterija.TxtPrezime.Text
+                Prezime = uCUpdateMusterija.TxtPrezime.Text,
+                WhereValue = uCUpdateMusterija.TxtPrezime.Text,
+                WhereCondition = "m.Prezime="
             };
 
             try
             {
-                uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterijaPrezime(m);
+                uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterija(m);
                 System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
             }
             catch (Exception)

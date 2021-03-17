@@ -56,11 +56,16 @@ namespace View.Controller
         {
             try
             {
-                Musterija m = new Musterija
+                Rentiranje r = new Rentiranje
                 {
-                    Prezime = uCUpdateRentiranje.TxtPretragaImePrezime.Text
+                    Musterija = new Musterija
+                    {
+                        Prezime = uCUpdateRentiranje.TxtPretragaImePrezime.Text
+                    },
+                    WhereCondition="m.Prezime=",
+                    WhereValue= uCUpdateRentiranje.TxtPretragaImePrezime.Text
                 };
-                rentiranja = Communication.Communication.Instance.SearchRentiranjePrezime(m);
+                rentiranja = Communication.Communication.Instance.SearchRentiranje(r);
                 uCUpdateRentiranje.CbPretraga.DataSource = rentiranja;
                 MessageBox.Show("Postoji rentiranje sa datim prezimenom");
             }
@@ -137,9 +142,11 @@ namespace View.Controller
             {
                 Rentiranje r = new Rentiranje
                 {
-                    Datum = uCUpdateRentiranje.DtpDatum.Value
-                };
-                rentiranja = Communication.Communication.Instance.SearchRentiranjeDatum(r);
+                    Datum = uCUpdateRentiranje.DtpDatum.Value,
+                    WhereCondition="r.Datum=",
+                    WhereValue= uCUpdateRentiranje.DtpDatum.Value.ToString("MM/dd/yyyy")
+            };
+                rentiranja = Communication.Communication.Instance.SearchRentiranje(r);
                 uCUpdateRentiranje.CbPretraga.DataSource = rentiranja;
                 //uCUpdateRentiranje.CbPretraga.DataSource = Communication.Communication.Instance.SearchRentiranjeDatum(r);
                 MessageBox.Show("Postoji rentiranja za taj dan");
@@ -178,11 +185,17 @@ namespace View.Controller
         {
             try
             {
-                Musterija m = new Musterija
+                Rentiranje r = new Rentiranje
                 {
-                    Ime = uCUpdateRentiranje.TxtPretragaImePrezime.Text
+                    Musterija = new Musterija
+                    {
+                        Ime = uCUpdateRentiranje.TxtPretragaImePrezime.Text
+                    },
+                    WhereCondition="m.Ime=",
+                    WhereValue= uCUpdateRentiranje.TxtPretragaImePrezime.Text
+
                 };
-                rentiranja = Communication.Communication.Instance.SearchRentiranjeIme(m);
+                rentiranja = Communication.Communication.Instance.SearchRentiranje(r);
                 uCUpdateRentiranje.CbPretraga.DataSource = rentiranja;
                 //uCUpdateRentiranje.CbPretraga.DataSource = Communication.Communication.Instance.SearchRentiranjeIme(m);
                 MessageBox.Show("Postoji rentiranje sa zadatim imenom");

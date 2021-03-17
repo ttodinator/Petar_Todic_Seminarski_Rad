@@ -59,11 +59,27 @@ namespace View.Controller
                     Registracija = uCAddAutomobil.TxtRegistracija.Text,
                     CenaPoDanu = double.Parse(uCAddAutomobil.TxtCenaPoDanu.Text),
                     Model = (Model)uCAddAutomobil.CbModel.SelectedItem,
-                    GodinaProizvodnje = (int)uCAddAutomobil.CbGodiste.SelectedItem
+                    GodinaProizvodnje = (int)uCAddAutomobil.CbGodiste.SelectedItem,
+                    WhereCondition="a.BrojSasije=",
+                    WhereValue= uCAddAutomobil.TxtBrojSasije.Text
 
                 };
 
-                if (Communication.Communication.Instance.AutomobilBrojSasijeCheck(a))
+                List<Automobil> automobilBrSasije;
+                try
+                {
+                    automobilBrSasije = Communication.Communication.Instance.SearchAutomobil(a);
+                    System.Windows.Forms.MessageBox.Show("Vec postoji automobil sa ovim brojem sasije");
+                    return;
+                }
+                catch (Exception)
+                {
+                    Communication.Communication.Instance.SaveAutomobil(a);
+                    System.Windows.Forms.MessageBox.Show("Automobil je sacuvan");
+                    ResetForm(uCAddAutomobil);
+                }
+
+                /*if (Communication.Communication.Instance.AutomobilBrojSasijeCheck(a))
                 {
                     Communication.Communication.Instance.SaveAutomobil(a);
                     System.Windows.Forms.MessageBox.Show("Automobil je sacuvan");
@@ -73,7 +89,7 @@ namespace View.Controller
                 {
                     System.Windows.Forms.MessageBox.Show("Vec postoji automobil sa ovim brojem sasije");
                     return;
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -166,11 +182,13 @@ namespace View.Controller
         {
             Automobil a = new Automobil
             {
-                BrojSasije = uCSearchAutomobil.TxtBrSasisije.Text
+                BrojSasije = uCSearchAutomobil.TxtBrSasisije.Text,
+                WhereCondition="a.BrojSasije=",
+                WhereValue= uCSearchAutomobil.TxtBrSasisije.Text
             };
             try
             {
-                uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobilBrSasije(a);
+                uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
                 System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatim brojem sasije");
             }
             catch (Exception)
@@ -184,11 +202,14 @@ namespace View.Controller
         {
             Automobil a = new Automobil
             {
-                Registracija = uCSearchAutomobil.TxtRegistracija.Text
+                Registracija = uCSearchAutomobil.TxtRegistracija.Text,
+                WhereCondition = "a.Registracija=",
+                WhereValue = uCSearchAutomobil.TxtRegistracija.Text,
+                
             };
             try
             {
-                uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobilRegistracija(a);
+                uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
                 System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatom registracija");
             }
             catch (Exception)
@@ -203,7 +224,9 @@ namespace View.Controller
         {
             Automobil a = new Automobil
             {
-                Registracija = uCUpdateAutomobil.TxtRegistracija.Text
+                Registracija = uCUpdateAutomobil.TxtRegistracija.Text,
+                WhereCondition = "a.Registracija=",
+                WhereValue = uCUpdateAutomobil.TxtRegistracija.Text,
             };
             try
             {
@@ -222,7 +245,9 @@ namespace View.Controller
         {
             Automobil a = new Automobil
             {
-                BrojSasije = uCUpdateAutomobil.TxtBrojSasije.Text
+                BrojSasije = uCUpdateAutomobil.TxtBrojSasije.Text,
+                WhereCondition = "a.BrojSasije=",
+                WhereValue = uCUpdateAutomobil.TxtBrojSasije.Text,
             };
             try
             {

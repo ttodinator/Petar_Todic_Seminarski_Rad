@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.AutomobilSO
 {
-    public class SearchAutomobilBrSasijeSO : SystemOperationBase
+    public class SearchAutomobilSO : SystemOperationBase
     {
         public List<Automobil> Result { get; set; }
 
         protected override void ExecuteOperation(IEntity entity)
         {
             Automobil a = (Automobil)entity;
-            a.WhereValue = a.BrojSasije;
-            a.WhereCondition = "a.BrojSasije=";
             Result = repository.GetAllWhere(a).Cast<Automobil>().ToList();
         }
     }

@@ -94,12 +94,7 @@ namespace Controller
             return so.Result;
         }
 
-        public object SearchAutomobilRegistracija(Automobil automobil)
-        {
-            SearchAutomobilRegistracijaSO so = new SearchAutomobilRegistracijaSO();
-            so.ExecuteTemplate(automobil);
-            return so.Result;
-        }
+
 
         public void SaveStavkaRentiranja(StavkaRentiranja stavkaRentirnja)
         {
@@ -114,40 +109,35 @@ namespace Controller
             so.ExecuteTemplate(stavkaRentiranja);
         }
 
-        public object SearchAutomobilBrojSasije(Automobil automobil)
+
+
+
+        public List<Musterija> SearchMusterija(Musterija musterija)
         {
-            SearchAutomobilBrSasijeSO so = new SearchAutomobilBrSasijeSO();
+            SearchMusterijaSO so = new SearchMusterijaSO();
+            so.ExecuteTemplate(musterija);
+            return so.Result;
+        }
+
+        public List<Rentiranje> SearchRentiranje(Rentiranje rentiranje)
+        {
+            SearchRentiranjeSO so = new SearchRentiranjeSO();
+            so.ExecuteTemplate(rentiranje);
+            return so.Result;
+        }
+
+        public List<Automobil> SearchAutomobil(Automobil automobil)
+        {
+            SearchAutomobilSO so = new SearchAutomobilSO();
             so.ExecuteTemplate(automobil);
             return so.Result;
         }
 
-        public List<Musterija> SearchMusterijaIme(Musterija musterija)
-        {
-            SearchMusterijaIme so = new SearchMusterijaIme();
-            so.ExecuteTemplate(musterija);
-            return so.Result;
-        }
 
-        public List<Musterija> SearchMusterijaJMBG(Musterija musterija)
-        {
-            SearchMusterijaJMBGSO so = new SearchMusterijaJMBGSO();
-            so.ExecuteTemplate(musterija);
-            return so.Result;
-        }
 
-        /*public object GetRentiranjeID(Rentiranje rentiranje)
-        {
-            GetRentiranjeIDSO so = new GetRentiranjeIDSO();
-            so.ExecuteTemplate(rentiranje);
-            return so.Result;
-        }*/
 
-        public object SearchMusterijaPrezime(Musterija musterija)
-        {
-            SearchMusterijaPrezime so = new SearchMusterijaPrezime();
-            so.ExecuteTemplate(musterija);
-            return so.Result;
-        }
+
+
 
         public object GetAllMusterija()
         {
@@ -190,26 +180,7 @@ namespace Controller
 
         }
 
-        public object SearchRentiranjeIme(Rentiranje rentiranje)
-        {
-            SearchRentiranjeImeSO so = new SearchRentiranjeImeSO();
-            so.ExecuteTemplate(rentiranje);
-            return so.Result;
-        }
 
-        public object SearchRentiranjePrezime(Rentiranje rentiranje)
-        {
-            SearchRentiranjePrezimeSO so = new SearchRentiranjePrezimeSO();
-            so.ExecuteTemplate(rentiranje);
-            return so.Result;
-        }
-
-        public object SearchRentiranjeDatum(Rentiranje rentiranje)
-        {
-            SearchRentiranjeDatumSO so = new SearchRentiranjeDatumSO();
-            so.ExecuteTemplate(rentiranje);
-            return so.Result;
-        }
 
         public object SearchStavkaReniranja(StavkaRentiranja stavkaRentiranja)
         {

@@ -104,30 +104,20 @@ namespace Server
                 case Operation.SaveRentiranje:
                     Controller.Controller.Instance.SaveRentiranje((Rentiranje)request.RequestObject);
                     break;
-                case Operation.SearchAutomobilRegistracija:
-                    response.Result = Controller.Controller.Instance.SearchAutomobilRegistracija((Automobil)request.RequestObject);
+                
+                case Operation.SearchAutomobil:
+                    response.Result = Controller.Controller.Instance.SearchAutomobil((Automobil)request.RequestObject);
                     break;
-                case Operation.SearchAutomobilBrSasije:
-                    response.Result = Controller.Controller.Instance.SearchAutomobilBrojSasije((Automobil)request.RequestObject);
+                
+                case Operation.SearchMusterija:
+                    response.Result = Controller.Controller.Instance.SearchMusterija((Musterija)request.RequestObject);
                     break;
-                case Operation.SearchMusterijaIme:
-                    response.Result = Controller.Controller.Instance.SearchMusterijaIme((Musterija)request.RequestObject);
+                
+                
+                case Operation.SearchRentiranje:
+                    response.Result = Controller.Controller.Instance.SearchRentiranje((Rentiranje)request.RequestObject);
                     break;
-                case Operation.SearchMusterijaJMBG:
-                    response.Result = Controller.Controller.Instance.SearchMusterijaJMBG((Musterija)request.RequestObject);
-                    break;
-                case Operation.SearchMusterijaPrezime:
-                    response.Result = Controller.Controller.Instance.SearchMusterijaPrezime((Musterija)request.RequestObject);
-                    break;
-                case Operation.SearchRentiranjeIme:
-                    response.Result = Controller.Controller.Instance.SearchRentiranjeIme((Rentiranje)request.RequestObject);
-                    break;
-                case Operation.SearchRentiranjePrezime:
-                    response.Result = Controller.Controller.Instance.SearchRentiranjePrezime((Rentiranje)request.RequestObject);
-                    break;
-                case Operation.SearchRentiranjeDatum:
-                    response.Result = Controller.Controller.Instance.SearchRentiranjeDatum((Rentiranje)request.RequestObject);
-                    break;
+
                 case Operation.SearchStavkaRentiranja:
                     response.Result = Controller.Controller.Instance.SearchStavkaReniranja((StavkaRentiranja)request.RequestObject);
                     break;

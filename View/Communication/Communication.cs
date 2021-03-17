@@ -89,6 +89,23 @@ namespace View.Communication
             return rentiranja;
         }
 
+        internal List<Rentiranje> SearchRentiranje(Rentiranje r)
+        {
+            List<Rentiranje> rentiranja;
+            Request request = new Request()
+            {
+                Operation = Operation.SearchRentiranje,
+                RequestObject = r
+            };
+            client.SendRequest(request);
+            rentiranja = (List<Rentiranje>)client.GetResponseResult();
+            if (rentiranja == null || rentiranja.Count == 0)
+            {
+                throw new Exception();
+            }
+            return rentiranja;
+        }
+
         internal List<Rentiranje> SearchRentiranjeDatum(Rentiranje r)
         {
             List<Rentiranje> rentiranja;
@@ -249,7 +266,7 @@ namespace View.Communication
             return (List<Model>)client.GetResponseResult();
         }
 
-        internal List<Musterija> SearchMusterijaIme(Musterija m)
+        /*internal List<Musterija> SearchMusterijaIme(Musterija m)
         {
             Request request = new Request
             {
@@ -266,6 +283,26 @@ namespace View.Communication
                 throw new Exception();
             }
 
+            return musterijas;
+        }*/
+
+        internal List<Musterija> SearchMusterija(Musterija m)
+        {
+            Request request = new Request
+            {
+                Operation = Operation.SearchMusterija,
+                RequestObject = m
+            };
+            List<Musterija> musterijas;
+
+            client.SendRequest(request);
+            musterijas = (List<Musterija>)client.GetResponseResult();
+            //return (List<Automobil>)client.GetResponseResult();
+            if (musterijas.Count == 0 || musterijas == null)
+            {
+                throw new Exception();
+            }
+            //musterijas = new List<Musterija>();
             return musterijas;
         }
 
@@ -332,7 +369,7 @@ namespace View.Communication
             client.GetResponseResult();
         }
 
-        internal List<Musterija> SearchMusterijaPrezime(Musterija m)
+        /*internal List<Musterija> SearchMusterijaPrezime(Musterija m)
         {
             Request request = new Request
             {
@@ -350,7 +387,7 @@ namespace View.Communication
             }
 
             return musterijas;
-        }
+        }*/
 
         internal void UpdateAutomobil(Automobil a)
         {
@@ -382,6 +419,26 @@ namespace View.Communication
             automobils = (List<Automobil>)client.GetResponseResult();
             //return (List<Automobil>)client.GetResponseResult();
             if (automobils==null || automobils.Count == 0 )
+            {
+                throw new Exception();
+            }
+
+            return automobils;
+        }
+
+        internal List<Automobil> SearchAutomobil(Automobil a)
+        {
+            Request request = new Request
+            {
+                Operation = Operation.SearchAutomobil,
+                RequestObject = a
+            };
+            List<Automobil> automobils;
+
+            client.SendRequest(request);
+            automobils = (List<Automobil>)client.GetResponseResult();
+            //return (List<Automobil>)client.GetResponseResult();
+            if (automobils == null || automobils.Count == 0)
             {
                 throw new Exception();
             }
