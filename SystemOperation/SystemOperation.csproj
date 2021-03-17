@@ -48,7 +48,7 @@
     <Compile Include="AutomobilSO\UpdateAutomobilSO.cs" />
     <Compile Include="MarkaSO\GetAllMarkaSO.cs" />
     <Compile Include="ModelSO\GetAllModelSO.cs" />
-    <Compile Include="ModelSO\GetAllModelWhereSO.cs" />
+    <Compile Include="ModelSO\SearchModelSO.cs" />
     <Compile Include="MusterijaSO\AddMusterijaSO.cs" />
     <Compile Include="MusterijaSO\GetAllMusterijaSO.cs" />
     <Compile Include="MusterijaSO\SearchMusterijaSO.cs" />

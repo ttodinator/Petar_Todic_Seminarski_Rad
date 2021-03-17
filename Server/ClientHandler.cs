@@ -96,7 +96,7 @@ namespace Server
                     response.Result = Controller.Controller.Instance.GetAllAutomobil();
                     break;
                 case Operation.GetAllModelWhere:
-                    response.Result = Controller.Controller.Instance.GetAllModelWhere((Model)request.RequestObject);
+                    response.Result = Controller.Controller.Instance.SearchModel((Model)request.RequestObject);
                     break;
                 case Operation.SaveAutomobil:
                     Controller.Controller.Instance.SaveAutomobil((Automobil)request.RequestObject);

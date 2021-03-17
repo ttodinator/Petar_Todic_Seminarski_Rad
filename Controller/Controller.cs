@@ -86,10 +86,10 @@ namespace Controller
             return so.Result;
         }
 
-        public List<Model> GetAllModelWhere(Model model)
+        public List<Model> SearchModel(Model model)
         {
 
-            GetAllModelWhereSO so = new GetAllModelWhereSO();
+            SearchModelSO so = new SearchModelSO();
             so.ExecuteTemplate(model);
             return so.Result;
         }
