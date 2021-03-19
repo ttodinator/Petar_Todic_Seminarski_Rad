@@ -13,29 +13,45 @@ namespace View.Controller
     {
         internal void InitUCAddAutomobil(UCAddAutomobil ucAddAutomobil)
         {
-            List<int> godista = new List<int>();
-            for (int i = 1980; i < 2021; i++)
+            try
             {
-                godista.Add(i);
+                List<int> godista = new List<int>();
+                for (int i = 1980; i < 2021; i++)
+                {
+                    godista.Add(i);
 
+                }
+                //ucAddAutomobil.CbGodiste.DataSource = Communication.Communication.Instance.GetAllMarka();
+                ucAddAutomobil.CbMarka.DataSource = Communication.Communication.Instance.GetAllMarka();
+                ucAddAutomobil.CbGodiste.DataSource = godista;
             }
-            //ucAddAutomobil.CbGodiste.DataSource = Communication.Communication.Instance.GetAllMarka();
-            ucAddAutomobil.CbMarka.DataSource = Communication.Communication.Instance.GetAllMarka();
-            ucAddAutomobil.CbGodiste.DataSource = godista;
+            catch (Exception ex)
+            {
+
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
             
         }
 
         internal void InitUCUpdateAutomobil(UCUpdateAutomobil uCUpdateAutomobil)
         {
-            List<int> godista = new List<int>();
-            for (int i = 1980; i < 2021; i++)
+            try
             {
-                godista.Add(i);
+                List<int> godista = new List<int>();
+                for (int i = 1980; i < 2021; i++)
+                {
+                    godista.Add(i);
 
+                }
+                //ucAddAutomobil.CbGodiste.DataSource = Communication.Communication.Instance.GetAllMarka();
+                uCUpdateAutomobil.CbMarka.DataSource = Communication.Communication.Instance.GetAllMarka();
+                uCUpdateAutomobil.CbGodiste.DataSource = godista;
             }
-            //ucAddAutomobil.CbGodiste.DataSource = Communication.Communication.Instance.GetAllMarka();
-            uCUpdateAutomobil.CbMarka.DataSource = Communication.Communication.Instance.GetAllMarka();
-            uCUpdateAutomobil.CbGodiste.DataSource = godista;
+            catch (Exception ex)
+            {
+
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -66,20 +82,7 @@ namespace View.Controller
                 };
 
                 List<Automobil> automobilBrSasije;
-                try
-                {
-                    automobilBrSasije = Communication.Communication.Instance.SearchAutomobil(a);
-                    System.Windows.Forms.MessageBox.Show("Vec postoji automobil sa ovim brojem sasije");
-                    return;
-                }
-                catch (Exception)
-                {
-                    Communication.Communication.Instance.SaveAutomobil(a);
-                    System.Windows.Forms.MessageBox.Show("Automobil je sacuvan");
-                    ResetForm(uCAddAutomobil);
-                }
-
-                /*if (Communication.Communication.Instance.AutomobilBrojSasijeCheck(a))
+                if (Communication.Communication.Instance.SearchAutomobilBrSasije(a))
                 {
                     Communication.Communication.Instance.SaveAutomobil(a);
                     System.Windows.Forms.MessageBox.Show("Automobil je sacuvan");
@@ -87,9 +90,10 @@ namespace View.Controller
                 }
                 else
                 {
+                    automobilBrSasije = Communication.Communication.Instance.SearchAutomobil(a);
                     System.Windows.Forms.MessageBox.Show("Vec postoji automobil sa ovim brojem sasije");
                     return;
-                }*/
+                }
             }
             catch (Exception ex)
             {
@@ -100,22 +104,34 @@ namespace View.Controller
 
         internal void DeleteAutomobil(UCUpdateAutomobil uCUpdateAutomobil)
         {
-            if ((Automobil)uCUpdateAutomobil.ComboBox.SelectedItem == null)
-            {
-                System.Windows.Forms.MessageBox.Show("Niste izabrali automobil");
-                return;
-            }
-            Automobil a = (Automobil)uCUpdateAutomobil.ComboBox.SelectedItem;
             try
             {
+                if ((Automobil)uCUpdateAutomobil.ComboBox.SelectedItem == null)
+                {
+                    System.Windows.Forms.MessageBox.Show("Niste izabrali automobil");
+                    return;
+                }
+                Automobil a = (Automobil)uCUpdateAutomobil.ComboBox.SelectedItem;
+                /*try
+                {
+                    Communication.Communication.Instance.DeleteAutomobil(a);
+                    System.Windows.Forms.MessageBox.Show("Automobil je uspesno obrisan");
+                    ResetForm(uCUpdateAutomobil);
+                }
+                catch (Exception)
+                {
+
+                    System.Windows.Forms.MessageBox.Show("Automobil ne moze biti obrisan jer postoji rentiranje u kome ucestvuje");
+                }*/
                 Communication.Communication.Instance.DeleteAutomobil(a);
                 System.Windows.Forms.MessageBox.Show("Automobil je uspesno obrisan");
                 ResetForm(uCUpdateAutomobil);
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Automobil ne moze biti obrisan jer postoji rentiranje u kome ucestvuje");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
@@ -149,32 +165,49 @@ namespace View.Controller
                 System.Windows.Forms.MessageBox.Show("Automobil uspesno sacuvan");
                 ResetForm(uCUpdateAutomobil);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
         internal void UpdateModel(UCUpdateAutomobil uCUpdateAutomobil)
         {
-            uCUpdateAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel((Marka)uCUpdateAutomobil.CbMarka.SelectedItem);
+            try
+            {
+                uCUpdateAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel((Marka)uCUpdateAutomobil.CbMarka.SelectedItem);
+
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
         internal void UpdateFill(UCUpdateAutomobil uCUpdateAutomobil)
         {
-            Automobil a = (Automobil)uCUpdateAutomobil.ComboBox.SelectedItem;
-            uCUpdateAutomobil.TxtCenaUpdate.Text = a.CenaPoDanu.ToString();
-            uCUpdateAutomobil.TxtRegistracijaUpdate.Text = a.Registracija;
-            uCUpdateAutomobil.CbMarka.SelectedIndex = uCUpdateAutomobil.CbMarka.FindStringExact(a.Model.Marka.ToString());
-            uCUpdateAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel(a.Marka);
-            //System.Windows.Forms.MessageBox.Show($"{a.Model.Naziv} {a.Model.Verzija}");
-            uCUpdateAutomobil.CbGodiste.SelectedIndex = uCUpdateAutomobil.CbGodiste.FindStringExact(a.GodinaProizvodnje.ToString());
-            uCUpdateAutomobil.CbModel.SelectedIndex = uCUpdateAutomobil.CbModel.FindStringExact($"{a.Model.Naziv} {a.Model.Verzija}");
-            //uCUpdateAutomobil.CbMarka.Text = a.Model.Marka.ToString();
-            //uCUpdateAutomobil.CbModel.Text = a.Model.ToString();
-            uCUpdateAutomobil.BrojSasije = a.BrojSasije;
-            System.Windows.Forms.MessageBox.Show("Ucitani su podaci o automobilu");
+            try
+            {
+                Automobil a = (Automobil)uCUpdateAutomobil.ComboBox.SelectedItem;
+                uCUpdateAutomobil.TxtCenaUpdate.Text = a.CenaPoDanu.ToString();
+                uCUpdateAutomobil.TxtRegistracijaUpdate.Text = a.Registracija;
+                uCUpdateAutomobil.CbMarka.SelectedIndex = uCUpdateAutomobil.CbMarka.FindStringExact(a.Model.Marka.ToString());
+                uCUpdateAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel(a.Marka);
+                //System.Windows.Forms.MessageBox.Show($"{a.Model.Naziv} {a.Model.Verzija}");
+                uCUpdateAutomobil.CbGodiste.SelectedIndex = uCUpdateAutomobil.CbGodiste.FindStringExact(a.GodinaProizvodnje.ToString());
+                uCUpdateAutomobil.CbModel.SelectedIndex = uCUpdateAutomobil.CbModel.FindStringExact($"{a.Model.Naziv} {a.Model.Verzija}");
+                //uCUpdateAutomobil.CbMarka.Text = a.Model.Marka.ToString();
+                //uCUpdateAutomobil.CbModel.Text = a.Model.ToString();
+                uCUpdateAutomobil.BrojSasije = a.BrojSasije;
+                System.Windows.Forms.MessageBox.Show("Ucitani su podaci o automobilu");
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -188,14 +221,22 @@ namespace View.Controller
             };
             try
             {
-                uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
-                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatim brojem sasije");
+                if (Communication.Communication.Instance.SearchAutomobilBrSasije(a))
+                {
+                    System.Windows.Forms.MessageBox.Show("Nema automobila sa zadatim brojem sasije");
+                }
+                else
+                {
+                    uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
+                    System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatim brojem sasije");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Nema automobila sa zadatim brojem sasije");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
         }
 
         internal void SearchAutomobilRegistracija(UCSearchAutomobil uCSearchAutomobil)
@@ -209,14 +250,22 @@ namespace View.Controller
             };
             try
             {
-                uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
-                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatom registracija");
+                if (Communication.Communication.Instance.SearchAutomobilRegistracija(a))
+                {
+                    System.Windows.Forms.MessageBox.Show("Nema automobila sa zadatom registracijom");
+                }
+                else
+                {
+                    uCSearchAutomobil.DgvAutomobili.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
+                    System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatom registracijom");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Ne postoji Automobil sa datom registracijom");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
 
         }
 
@@ -230,13 +279,20 @@ namespace View.Controller
             };
             try
             {
-                uCUpdateAutomobil.ComboBox.DataSource = Communication.Communication.Instance.SearchAutomobilRegistracija(a);
-                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatom registracijom");
+                if (Communication.Communication.Instance.SearchAutomobilRegistracija(a))
+                {
+                    System.Windows.Forms.MessageBox.Show("Nema automobila sa zadatom registracijom");
+                }
+                else
+                {
+                    uCUpdateAutomobil.ComboBox.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
+                    System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatom registracijom");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Ne postoji Automobil sa datom registracijom");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
         }
@@ -251,22 +307,36 @@ namespace View.Controller
             };
             try
             {
-                List<Automobil> automobili= Communication.Communication.Instance.SearchAutomobilBrSasije(a);
-                uCUpdateAutomobil.ComboBox.DataSource = automobili;
-                System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatim brojem sasije");
-
+                if (Communication.Communication.Instance.SearchAutomobilBrSasije(a))
+                {
+                    System.Windows.Forms.MessageBox.Show("Nema automobila sa zadatim brojem sasije");
+                }
+                else
+                {
+                    uCUpdateAutomobil.ComboBox.DataSource = Communication.Communication.Instance.SearchAutomobil(a);
+                    System.Windows.Forms.MessageBox.Show("Postoji automobil sa zadatim brojem sasije");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Ne postoji Automobil sa datom registracijom");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
         }
 
         internal void GetAllModel(UCAddAutomobil uCAddAutomobil)
         {
-            uCAddAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel((Marka)uCAddAutomobil.CbMarka.SelectedItem);
+            try
+            {
+                uCAddAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel((Marka)uCAddAutomobil.CbMarka.SelectedItem);
+
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }        
         }
 
         internal void ResetForm(UCAddAutomobil uCAddAutomobil)

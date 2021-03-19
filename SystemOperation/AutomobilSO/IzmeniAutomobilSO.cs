@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.AutomobilSO
 {
-    public class AddAutomobilSO : SystemOperationBase
+    public class IzmeniAutomobilSO : SystemOperationBase
     {
         protected override void ExecuteOperation(IEntity entity)
         {
-
-            Automobil a = (Automobil)entity;
-            string k = CommaConversion(a.CenaPoDanu.ToString());
-            a.InsertValues = $"'{a.BrojSasije}','{a.Registracija}',{a.GodinaProizvodnje},{k},{a.Model.Id}";
-            repository.Save(a);
+                Automobil a = (Automobil)entity;
+                a.WhereCondition = "BrojSasije=";
+                a.WhereValue = $"'{a.BrojSasije}'";
+                a.UpdateText = $"Registracija='{a.Registracija}',GodinaProizvodnje={a.GodinaProizvodnje},CenaPoDanu={CommaConversion(a.CenaPoDanu.ToString())},ModelID={a.Model.Id}";
+                repository.Update(a);
         }
 
         private string CommaConversion(string s)
@@ -27,6 +27,4 @@ namespace SystemOperation.AutomobilSO
             return s;
         }
     }
-
-
 }

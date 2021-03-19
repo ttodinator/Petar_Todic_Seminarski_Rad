@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.AutomobilSO
 {
-    public class DeleteAutomobilSO : SystemOperationBase
+    public class VratiAutomobilePoKriterijumuSO : SystemOperationBase
     {
+        public List<Automobil> Result { get; set; }
+
         protected override void ExecuteOperation(IEntity entity)
         {
             Automobil a = (Automobil)entity;
-            a.WhereCondition = "BrojSasije=";
-            a.WhereValue = $"'{a.BrojSasije}'";
-            repository.Delete(a);
+            Result = repository.GetAllWhere(a).Cast<Automobil>().ToList();
         }
     }
 }

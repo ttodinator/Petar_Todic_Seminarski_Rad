@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.MusterijaSO
 {
-    public class GetAllMusterijaSO : SystemOperationBase
+    public class UcitajListuMusterijaSO : SystemOperationBase
     {
 
         public List<Musterija> Result { get; private set; }

@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemOperation.ModelSO
+namespace SystemOperation.PolisaSO
 {
-    public class GetAllModelSO : SystemOperationBase
+    public class UcitajListuPolisaSO : SystemOperationBase
     {
-        public List<Model> Result { get; private set; }
+        public List<Polisa> Result = new List<Polisa>();
         protected override void ExecuteOperation(IEntity entity)
         {
-            Result = repository.GetAll(new Model()).Cast<Model>().ToList();
+            Result = repository.GetAll(new Polisa()).Cast<Polisa>().ToList();
         }
     }
 }

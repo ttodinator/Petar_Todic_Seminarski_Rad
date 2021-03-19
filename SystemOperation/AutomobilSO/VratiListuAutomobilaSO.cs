@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.AutomobilSO
 {
-    public class GetAllAutomobilSO : SystemOperationBase
+    public class VratiListuAutomobilaSO : SystemOperationBase
     {
         public List<Automobil> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)

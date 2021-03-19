@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.StavkaRentiranjaSO
 {
-    public class AddStavkaRentiranjaSO : SystemOperationBase
+    public class ZapamtiStavkuRentiranjaSO : SystemOperationBase
     {
         protected override void ExecuteOperation(IEntity entity)
         {

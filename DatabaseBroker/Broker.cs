@@ -33,9 +33,18 @@ namespace DatabaseBroker
         {
             SqlCommand command = new SqlCommand("",connection,transaction);
             command.CommandText = $"delete from {entity.TableName} where {entity.WhereCondition} {entity.WhereValue} ";
-            if (command.ExecuteNonQuery() != 1)
+            /*if (command.ExecuteNonQuery() != 1)
             {
-                throw new Exception("Database error!");
+                throw new Exception("Greska sa bazom podataka");
+            }*/
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Brisanje ovog objekta nije dozvoljeno");
             }
 
         }
@@ -82,9 +91,18 @@ namespace DatabaseBroker
         {
             SqlCommand command = new SqlCommand("", connection, transaction);
             command.CommandText = $"insert into {entity.TableName} values ({entity.InsertValues})";
-            if (command.ExecuteNonQuery() != 1)
+            /*if (command.ExecuteNonQuery() != 1)
             {
                 throw new Exception("Database error!");
+            }*/
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Greska sa bazom podataka");
             }
         }
 
@@ -92,9 +110,18 @@ namespace DatabaseBroker
         {
             SqlCommand command = new SqlCommand("", connection, transaction);
             command.CommandText = $"update {entity.TableName} set {entity.UpdateText} {entity.Where} {entity.WhereCondition}{entity.WhereValue}";
-            if (command.ExecuteNonQuery() != 1)
+            /*if (command.ExecuteNonQuery() != 1)
             {
                 throw new Exception("Database error!");
+            }*/
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Greska sa bazom podataka");
             }
         }
 

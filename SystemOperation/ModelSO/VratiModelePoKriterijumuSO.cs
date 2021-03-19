@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.ModelSO
 {
-    public class SearchModelSO : SystemOperationBase
+    public class VratiModelePoKriterijumuSO : SystemOperationBase
     {
         public List<Model> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)

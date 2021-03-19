@@ -41,27 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutomobilSO\AddAutomobilSO.cs" />
-    <Compile Include="AutomobilSO\DeleteAutomobilSO.cs" />
-    <Compile Include="AutomobilSO\GetAllAutomobilSO.cs" />
-    <Compile Include="AutomobilSO\SearchAutomobilSO.cs" />
-    <Compile Include="AutomobilSO\UpdateAutomobilSO.cs" />
-    <Compile Include="MarkaSO\GetAllMarkaSO.cs" />
-    <Compile Include="ModelSO\GetAllModelSO.cs" />
-    <Compile Include="ModelSO\SearchModelSO.cs" />
-    <Compile Include="MusterijaSO\AddMusterijaSO.cs" />
-    <Compile Include="MusterijaSO\GetAllMusterijaSO.cs" />
-    <Compile Include="MusterijaSO\SearchMusterijaSO.cs" />
-    <Compile Include="MusterijaSO\UpdateMusterijaSO.cs" />
-    <Compile Include="PolisaSO\GetAllPolisaSO.cs" />
+    <Compile Include="AutomobilSO\ZapamtiAutomobilSO.cs" />
+    <Compile Include="AutomobilSO\IzbrisiAutomobilSO.cs" />
+    <Compile Include="AutomobilSO\VratiListuAutomobilaSO.cs" />
+    <Compile Include="AutomobilSO\VratiAutomobilePoKriterijumuSO.cs" />
+    <Compile Include="AutomobilSO\IzmeniAutomobilSO.cs" />
+    <Compile Include="MarkaSO\VratiListuMarkiSO.cs" />
+    <Compile Include="ModelSO\VratiListuModelaSO.cs" />
+    <Compile Include="ModelSO\VratiModelePoKriterijumuSO.cs" />
+    <Compile Include="MusterijaSO\ZapamtiMusterijuSO.cs" />
+    <Compile Include="MusterijaSO\UcitajListuMusterijaSO.cs" />
+    <Compile Include="MusterijaSO\VratiMusterijePoKriterijumuSO.cs" />
+    <Compile Include="MusterijaSO\IzmeniMusterijuSO.cs" />
+    <Compile Include="PolisaSO\UcitajListuPolisaSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RentiranjeSO\AddRentiranjeSO.cs" />
-    <Compile Include="RentiranjeSO\GetRentiranjeIDSO.cs" />
-    <Compile Include="RentiranjeSO\SearchRentiranjeSO.cs" />
-    <Compile Include="RentiranjeSO\UpdateRentiranjeSO.cs" />
-    <Compile Include="StavkaRentiranjaSO\AddStavkaRentiranjaSO.cs" />
-    <Compile Include="StavkaRentiranjaSO\DeleteStavkaRentiranjaSO.cs" />
-    <Compile Include="StavkaRentiranjaSO\SearchStavkaRentiranjaSO.cs" />
+    <Compile Include="RentiranjeSO\ZapamtiRentiranjeSO.cs" />
+    <Compile Include="RentiranjeSO\VratiRentiranjePoKriterijumuSO.cs" />
+    <Compile Include="RentiranjeSO\IzmeniRentiranjeSO.cs" />
+    <Compile Include="StavkaRentiranjaSO\ZapamtiStavkuRentiranjaSO.cs" />
+    <Compile Include="StavkaRentiranjaSO\IzbrisiStavkaRentiranjaSO.cs" />
+    <Compile Include="StavkaRentiranjaSO\VratiStavkarentiranjaPoKriterijumuSO.cs" />
     <Compile Include="SystemOperationBase.cs" />
     <Compile Include="ZaposleniSO\LoginSO.cs" />
   </ItemGroup>

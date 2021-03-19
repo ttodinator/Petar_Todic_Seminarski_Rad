@@ -37,27 +37,22 @@ namespace View.Controller
                     WhereValue= UCAddMusterija.TxtJMBG.Text
                 };
                 List<Musterija> musterijaJMBG;
-                try
-                {
-                    musterijaJMBG = Communication.Communication.Instance.SearchMusterija(m);
-                    System.Windows.Forms.MessageBox.Show("Musterija vec postoji u bazi");
-                    return;
-                }
-                catch (Exception)
+                if (Communication.Communication.Instance.SearchMusterijaJMBG(m))
                 {
                     Communication.Communication.Instance.SaveMusterija(m);
                     System.Windows.Forms.MessageBox.Show("Musterija uspesno sacuvana");
                     ResetForm(UCAddMusterija);
                 }
-
-                //Communication.Communication.Instance.SaveMusterija(m);
-                //System.Windows.Forms.MessageBox.Show("Musterija uspesno sacuvana");
-                //ResetForm(UCAddMusterija);
+                else
+                {
+                    musterijaJMBG = Communication.Communication.Instance.SearchMusterija(m);
+                    System.Windows.Forms.MessageBox.Show("Musterija vec postoji u bazi");
+                    return;
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                //System.Windows.Forms.MessageBox.Show("NE POSTOJI MUSTERIJA");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
@@ -90,108 +85,150 @@ namespace View.Controller
                 System.Windows.Forms.MessageBox.Show("Musterija uspesno izmenjena");
                 ResetForm(uCUpdateMusterija);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
         internal void SearchMusterijaIme(UCSearchMusterija uCSearchMusterija)
         {
-            Musterija m = new Musterija
-            {
-                Ime = uCSearchMusterija.TxtIme.Text,
-                WhereValue= uCSearchMusterija.TxtIme.Text,
-                WhereCondition = "m.Ime="
-
-            };
-
             try
             {
-                uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterija(m);
-                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
+                Musterija m = new Musterija
+                {
+                    Ime = uCSearchMusterija.TxtIme.Text,
+                    WhereValue = uCSearchMusterija.TxtIme.Text,
+                    WhereCondition = "m.Ime="
+
+                };
+                if (Communication.Communication.Instance.SearchMusterijaIme(m))
+                {
+                    System.Windows.Forms.MessageBox.Show("Ne postoji musterija sa tim imenom");
+
+                }
+                else
+                {
+                    uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterija(m);
+                    System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Nema musterija za zadatim imenom");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
         }
 
         internal void UpdateFill(UCUpdateMusterija uCUpdateMusterija)
         {
-            Musterija m = (Musterija)uCUpdateMusterija.CbMusterije.SelectedItem;
-            
-            uCUpdateMusterija.TxtImeUpdate.Text = m.Ime;
-            uCUpdateMusterija.TxtPrezimeUpdate.Text = m.Prezime;
-            uCUpdateMusterija.TxtBrojTelefonaUpdate.Text = m.BrojTelefona;
-            uCUpdateMusterija.DtpDatumUpdate.Value = m.DatumRodjenja;
-            uCUpdateMusterija.JMBG = m.JMBG;
-            System.Windows.Forms.MessageBox.Show("Ucitana musterija");
+            try
+            {
+                Musterija m = (Musterija)uCUpdateMusterija.CbMusterije.SelectedItem;
+
+                uCUpdateMusterija.TxtImeUpdate.Text = m.Ime;
+                uCUpdateMusterija.TxtPrezimeUpdate.Text = m.Prezime;
+                uCUpdateMusterija.TxtBrojTelefonaUpdate.Text = m.BrojTelefona;
+                uCUpdateMusterija.DtpDatumUpdate.Value = m.DatumRodjenja;
+                uCUpdateMusterija.JMBG = m.JMBG;
+                System.Windows.Forms.MessageBox.Show("Ucitana musterija");
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
         internal void SearchMusterijaIme(UCUpdateMusterija uCUpdateMusterija)
         {
-            Musterija m = new Musterija
-            {
-                Ime = uCUpdateMusterija.TxtIme.Text,
-                WhereValue = uCUpdateMusterija.TxtIme.Text,
-                WhereCondition = "m.Ime="
-            };
-
             try
             {
-                uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterija(m);
-                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
+                Musterija m = new Musterija
+                {
+                    Ime = uCUpdateMusterija.TxtIme.Text,
+                    WhereValue = uCUpdateMusterija.TxtIme.Text,
+                    WhereCondition = "m.Ime="
+                };
+
+                if (Communication.Communication.Instance.SearchMusterijaIme(m))
+                {
+                    System.Windows.Forms.MessageBox.Show("Ne postoji musterija sa zadatim imenom");
+
+                }
+                else
+                {
+                    uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterija(m);
+                    System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim imenom");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Nema musterija za zadatim imenom");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
         internal void SearchMusterijaPrezime(UCSearchMusterija uCSearchMusterija)
         {
-            Musterija m = new Musterija
-            {
-                Prezime = uCSearchMusterija.TxtPrezime.Text,
-                WhereValue = uCSearchMusterija.TxtPrezime.Text,
-                WhereCondition = "m.Prezime="
-            };
-
             try
             {
-                uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterija(m);
-                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
+                Musterija m = new Musterija
+                {
+                    Prezime = uCSearchMusterija.TxtPrezime.Text,
+                    WhereValue = uCSearchMusterija.TxtPrezime.Text,
+                    WhereCondition = "m.Prezime="
+                };
+                if (Communication.Communication.Instance.SearchMusterijaPrezime(m))
+                {
+                    System.Windows.Forms.MessageBox.Show("Ne postoji musterija sa zadatim prezimenom");
+
+                }
+                else
+                {
+                    uCSearchMusterija.DgvMusterija.DataSource = Communication.Communication.Instance.SearchMusterija(m);
+                    System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Nema musterija za zadatim prezimenom");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
         }
 
         internal void SearchMusterijaPrezime(UCUpdateMusterija uCUpdateMusterija)
         {
-            Musterija m = new Musterija
-            {
-                Prezime = uCUpdateMusterija.TxtPrezime.Text,
-                WhereValue = uCUpdateMusterija.TxtPrezime.Text,
-                WhereCondition = "m.Prezime="
-            };
-
             try
             {
-                uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterija(m);
-                System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
+                Musterija m = new Musterija
+                {
+                    Prezime = uCUpdateMusterija.TxtPrezime.Text,
+                    WhereValue = uCUpdateMusterija.TxtPrezime.Text,
+                    WhereCondition = "m.Prezime="
+                };
+                if (Communication.Communication.Instance.SearchMusterijaPrezime(m))
+                {
+                    System.Windows.Forms.MessageBox.Show("Ne postoji musterija sa zadatim prezimenom");
+
+
+                }
+                else
+                {
+                    uCUpdateMusterija.CbMusterije.DataSource = Communication.Communication.Instance.SearchMusterija(m);
+                    System.Windows.Forms.MessageBox.Show("Postoji musterija sa zadatim prezimenom");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Nema musterija za zadatim prezimenom");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
+
         }
 
         internal void InitUCMusterija(UCAddMusterija uCAddMusterija)

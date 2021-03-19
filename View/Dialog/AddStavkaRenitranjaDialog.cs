@@ -18,32 +18,49 @@ namespace View.Dialog
         public StavkaRentiranja stavkaRentiranja { get; set; }
         public AddStavkaRenitranjaDialog(int redniBroj)
         {
-            InitializeComponent();
-            this.redniBroj = redniBroj;
-            cbAutomobil.DataSource = Communication.Communication.Instance.GetAllAutomobil();
-            cbPolisa.DataSource = Communication.Communication.Instance.GetAllPolisa();
+            try
+            {
+                InitializeComponent();
+                this.redniBroj = redniBroj;
+                cbAutomobil.DataSource = Communication.Communication.Instance.GetAllAutomobil();
+                cbPolisa.DataSource = Communication.Communication.Instance.GetAllPolisa();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAddStavka_Click(object sender, EventArgs e)
         {
-            if(!UserControlHelpers.ComboBoxValidation(cbAutomobil,lblAutomobil)
-                | !UserControlHelpers.ComboBoxValidation(cbPolisa,lblPolisa)
-                | !UserControlHelpers.DateRentiranjeValidation(dtpDatumDo,dtpDatumOd,lblDatumDo)
-                )
+            try
             {
-                return;
-            }
-            stavkaRentiranja = new StavkaRentiranja
-            {
-                RedniBroj = redniBroj,
-                DatumOd = dtpDatumOd.Value,
-                DatumDo = dtpDatumDo.Value,
-                Automobil = (Automobil)cbAutomobil.SelectedItem,
-                Polisa = (Polisa)cbPolisa.SelectedItem
+                if (!UserControlHelpers.ComboBoxValidation(cbAutomobil, lblAutomobil)
+                        | !UserControlHelpers.ComboBoxValidation(cbPolisa, lblPolisa)
+                        | !UserControlHelpers.DateRentiranjeValidation(dtpDatumDo, dtpDatumOd, lblDatumDo)
+                        )
+                {
+                    return;
+                }
+                stavkaRentiranja = new StavkaRentiranja
+                {
+                    RedniBroj = redniBroj,
+                    DatumOd = dtpDatumOd.Value,
+                    DatumDo = dtpDatumDo.Value,
+                    Automobil = (Automobil)cbAutomobil.SelectedItem,
+                    Polisa = (Polisa)cbPolisa.SelectedItem
 
-            };
-            this.DialogResult = DialogResult.OK;
-            this.Dispose();
+                };
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

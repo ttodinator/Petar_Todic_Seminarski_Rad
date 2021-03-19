@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using View.Dialog;
 using View.UserControls;
 using View.Helpers;
+using System.Runtime.Serialization;
+using System.Net.Sockets;
 
 namespace View.Controller
 {
@@ -22,9 +24,17 @@ namespace View.Controller
         UCUpdateRentiranje uCUpdateRentiranje;
         internal void InitUCAddRentiranje(UCAddRentiranje uCAddRentiranje)
         {
-            uCAddRentiranje.CbMusterija.DataSource = Communication.Communication.Instance.GetAllMusterija();
-            DateTime dateTime = DateTime.Now;
-            uCAddRentiranje.LblDatumShow.Text = dateTime.ToString("MM/dd/yyyy");
+            try
+            {
+                uCAddRentiranje.CbMusterija.DataSource = Communication.Communication.Instance.GetAllMusterija();
+                DateTime dateTime = DateTime.Now;
+                uCAddRentiranje.LblDatumShow.Text = dateTime.ToString("MM/dd/yyyy");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -43,10 +53,18 @@ namespace View.Controller
 
         internal void InitForm(UCAddRentiranje uCAddRentiranje)
         {
-            this.uCAddRentiranje = uCAddRentiranje;
-            uCAddRentiranje.DgvStavka.DataSource = stavkeRentiranja;
-            uCAddRentiranje.LblUkupnaCena.Text = "0";
-            
+            try
+            {
+                this.uCAddRentiranje = uCAddRentiranje;
+                uCAddRentiranje.DgvStavka.DataSource = stavkeRentiranja;
+                uCAddRentiranje.LblUkupnaCena.Text = "0";
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         List<Rentiranje> rentiranja = new List<Rentiranje>();
@@ -69,25 +87,33 @@ namespace View.Controller
                 uCUpdateRentiranje.CbPretraga.DataSource = rentiranja;
                 MessageBox.Show("Postoji rentiranje sa datim prezimenom");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Ne postoji nijedno rentiranje sa zadatim prezimenom");
+                MessageBox.Show(ex.Message);
             }
             //uCUpdateRentiranje.CbPretraga.DataSource= Communication.Communication.Instance.SearchRentiranjePrezime(m);
         }
 
         internal void AddStavkaRentiranjaUpdate()
         {
-            int broj = stavkeRentiranja.Count + 1;
-            AddStavkaRenitranjaDialog dialog = new AddStavkaRenitranjaDialog(broj);
-            dialog.ShowDialog();
-            if (dialog.stavkaRentiranja != null)
+            try
             {
-                stavkeRentiranja.Add(dialog.stavkaRentiranja);
+                int broj = stavkeRentiranja.Count + 1;
+                AddStavkaRenitranjaDialog dialog = new AddStavkaRenitranjaDialog(broj);
+                dialog.ShowDialog();
+                if (dialog.stavkaRentiranja != null)
+                {
+                    stavkeRentiranja.Add(dialog.stavkaRentiranja);
 
+                }
+                uCUpdateRentiranje.LblUkupnaCena.Text = GetUkupnaCena().ToString();
             }
-            uCUpdateRentiranje.LblUkupnaCena.Text = GetUkupnaCena().ToString();
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         internal void UpdateRentiranje()
@@ -106,33 +132,36 @@ namespace View.Controller
                 return;
 
             }
-            Rentiranje r = new Rentiranje
+            try
             {
-                Id=RentiranjeId,
-                Musterija = (Musterija)uCUpdateRentiranje.CbMusterijaUpdate.SelectedItem,
-                Datum = DateTime.Now,
-                UkupnaCena = GetUkupnaCena(),
-                StavkeRentiranja=stavkeRentiranja.ToList()
-            };
-            Communication.Communication.Instance.UpdateRentiranje(r);
-
-            if (stavkeRentiranjaUpdateDeletion.Count>0)
-            {
-                for (int i = 0; i < stavkeRentiranjaUpdateDeletion.Count; i++)
+                Rentiranje r = new Rentiranje
                 {
-                    Communication.Communication.Instance.DeleteStavkaRentiranja(stavkeRentiranjaUpdateDeletion[i]);
-                } 
-            }
-            /*for (int i = 0; i < stavkeRentiranja.Count; i++)
-            {
-                stavkeRentiranja[i].Rentiranje = r;
-                Communication.Communication.Instance.SaveStavkarentiranja(stavkeRentiranja[i]);
-            }*/
+                    Id = RentiranjeId,
+                    Musterija = (Musterija)uCUpdateRentiranje.CbMusterijaUpdate.SelectedItem,
+                    Datum = DateTime.Now,
+                    UkupnaCena = GetUkupnaCena(),
+                    StavkeRentiranja = stavkeRentiranja.ToList()
+                };
+                //Communication.Communication.Instance.UpdateRentiranje(r);
 
-            MessageBox.Show("Rentiranje je uspesno azurirano");
-            stavkeRentiranja.Clear();
-            uCUpdateRentiranje.CbPretraga.DataSource = null;
-            uCUpdateRentiranje.TxtPretragaImePrezime.Text = "";
+                if (stavkeRentiranjaUpdateDeletion.Count > 0)
+                {
+                    for (int i = 0; i < stavkeRentiranjaUpdateDeletion.Count; i++)
+                    {
+                        Communication.Communication.Instance.DeleteStavkaRentiranja(stavkeRentiranjaUpdateDeletion[i]);
+                    }
+                }
+                Communication.Communication.Instance.UpdateRentiranje(r);
+                MessageBox.Show("Rentiranje je uspesno azurirano");
+                stavkeRentiranja.Clear();
+                uCUpdateRentiranje.CbPretraga.DataSource = null;
+                uCUpdateRentiranje.TxtPretragaImePrezime.Text = "";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message); 
+            }
             
         }
 
@@ -151,34 +180,50 @@ namespace View.Controller
                 //uCUpdateRentiranje.CbPretraga.DataSource = Communication.Communication.Instance.SearchRentiranjeDatum(r);
                 MessageBox.Show("Postoji rentiranja za taj dan");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Za ovaj datum ne postoji nijedno rentiranje");
+                MessageBox.Show(ex.Message); 
             }
         }
 
         
         internal void UpdateFill()
         {
-            Rentiranje r = (Rentiranje)uCUpdateRentiranje.CbPretraga.SelectedItem;
-            RentiranjeId = r.Id;
-            //uCUpdateRentiranje.DtpDatumUpdate.Value = r.Datum;
-            uCUpdateRentiranje.CbMusterijaUpdate.SelectedIndex = uCUpdateRentiranje.CbMusterijaUpdate.FindStringExact($"{r.Musterija.Ime} {r.Musterija.Prezime} {r.Musterija.JMBG}");
-            uCUpdateRentiranje.LblUkupnaCena.Text = r.UkupnaCena.ToString();
-            stavkeRentiranjaUpdateDeletion = new BindingList<StavkaRentiranja>(Communication.Communication.Instance.SearchStavkaRentiranja(r.Id));
-            stavkeRentiranja = new BindingList<StavkaRentiranja>(Communication.Communication.Instance.SearchStavkaRentiranja(r.Id));
-            uCUpdateRentiranje.DgvStavkeRentiranja.DataSource = stavkeRentiranja;
-            //uCUpdateRentiranje.DgvStavkeRentiranja.DataSource = Communication.Communication.Instance.SearchStavkaRentiranja(r.Id);
-            uCUpdateRentiranje.Refresh();
-            MessageBox.Show("Uspesno ucitano rentiranje");
+            try
+            {
+                Rentiranje r = (Rentiranje)uCUpdateRentiranje.CbPretraga.SelectedItem;
+                RentiranjeId = r.Id;
+                //uCUpdateRentiranje.DtpDatumUpdate.Value = r.Datum;
+                uCUpdateRentiranje.CbMusterijaUpdate.SelectedIndex = uCUpdateRentiranje.CbMusterijaUpdate.FindStringExact($"{r.Musterija.Ime} {r.Musterija.Prezime} {r.Musterija.JMBG}");
+                uCUpdateRentiranje.LblUkupnaCena.Text = r.UkupnaCena.ToString();
+                stavkeRentiranjaUpdateDeletion = new BindingList<StavkaRentiranja>(Communication.Communication.Instance.SearchStavkaRentiranja(r.Id));
+                stavkeRentiranja = new BindingList<StavkaRentiranja>(Communication.Communication.Instance.SearchStavkaRentiranja(r.Id));
+                uCUpdateRentiranje.DgvStavkeRentiranja.DataSource = stavkeRentiranja;
+                //uCUpdateRentiranje.DgvStavkeRentiranja.DataSource = Communication.Communication.Instance.SearchStavkaRentiranja(r.Id);
+                uCUpdateRentiranje.Refresh();
+                MessageBox.Show("Uspesno ucitano rentiranje");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         internal void InitUCUpdateRentiranje()
         {
-            uCUpdateRentiranje.CbMusterijaUpdate.DataSource = Communication.Communication.Instance.GetAllMusterija();
-            DateTime dateTime = DateTime.Now;
-            uCUpdateRentiranje.LblDatumShow.Text = dateTime.ToString("MM/dd/yyyy");
+            try
+            {
+                uCUpdateRentiranje.CbMusterijaUpdate.DataSource = Communication.Communication.Instance.GetAllMusterija();
+                DateTime dateTime = DateTime.Now;
+                uCUpdateRentiranje.LblDatumShow.Text = dateTime.ToString("MM/dd/yyyy");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         internal void SarchIme()
@@ -200,10 +245,10 @@ namespace View.Controller
                 //uCUpdateRentiranje.CbPretraga.DataSource = Communication.Communication.Instance.SearchRentiranjeIme(m);
                 MessageBox.Show("Postoji rentiranje sa zadatim imenom");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Ne postoji nijedno rentiranje za zadato ime");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -266,33 +311,26 @@ namespace View.Controller
             {
                 return;
             }
-            Rentiranje r = new Rentiranje
+            try
             {
-                Musterija = (Musterija)uCAddRentiranje.CbMusterija.SelectedItem,
-                Datum = DateTime.Now,
-                //StavkeRentiranja = stavkeRentiranja.ToList(),
-                UkupnaCena=GetUkupnaCena(),
-                StavkeRentiranja=stavkeRentiranja.ToList()
-            };
-            //Communication.Communication.Instance.SaveRentiranje(r);
-            //int ID=Communication.Communication.Instance.GetRentiranjeID(r);
-            //r.Id = ID;
-            /*if (stavkeRentiranja.Count < 1)
-            {
-                MessageBox.Show("Ne postoji nijedna stavka");
-                return;
-            }
-            for (int i = 0; i < stavkeRentiranja.Count; i++)
-            {
-                stavkeRentiranja[i].Rentiranje = r;
-                Communication.Communication.Instance.SaveStavkarentiranja(stavkeRentiranja[i]);
+                Rentiranje r = new Rentiranje
+                {
+                    Musterija = (Musterija)uCAddRentiranje.CbMusterija.SelectedItem,
+                    Datum = DateTime.Now,
+                    //StavkeRentiranja = stavkeRentiranja.ToList(),
+                    UkupnaCena = GetUkupnaCena(),
+                    StavkeRentiranja = stavkeRentiranja.ToList()
+                };
 
+                Communication.Communication.Instance.SaveRentiranje(r);
+                MessageBox.Show("Rentiranje je uspesno sacuvano");
+                stavkeRentiranja.Clear();
             }
-            */
-            //r.StavkeRentiranja = stavkeRentiranja.ToList();
-            Communication.Communication.Instance.SaveRentiranje(r);
-            MessageBox.Show("Rentiranje je uspesno sacuvano");
-            stavkeRentiranja.Clear();
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         internal void UpdateUkupnaCena()

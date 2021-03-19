@@ -55,33 +55,33 @@ namespace Controller
 
         public void SaveMusterija(Musterija musterija)
         {
-            AddMusterijaSO so = new AddMusterijaSO();
+            ZapamtiMusterijuSO so = new ZapamtiMusterijuSO();
             so.ExecuteTemplate(musterija);
         }
 
         public void SaveAutomobil(Automobil automobil)
         {
-            AddAutomobilSO so = new AddAutomobilSO();
+            ZapamtiAutomobilSO so = new ZapamtiAutomobilSO();
             so.ExecuteTemplate(automobil);
         }
 
         public List<Marka> GetAllMarka()
         {
-            GetAllMarkaSO so = new GetAllMarkaSO();
+            VratiListuMarkiSO so = new VratiListuMarkiSO();
             so.ExecuteTemplate(new Marka());
             return so.Result;
         }
 
         public List<Automobil> GetAllAutomobil()
         {
-            GetAllAutomobilSO so = new GetAllAutomobilSO();
+            VratiListuAutomobilaSO so = new VratiListuAutomobilaSO();
             so.ExecuteTemplate(new Automobil());
             return so.Result;
         }
 
         public List<Model> GetAllModel()
         {
-            GetAllModelSO so = new GetAllModelSO() ;
+            VratiListuModelaSO so = new VratiListuModelaSO() ;
             so.ExecuteTemplate(new Model());
             return so.Result;
         }
@@ -89,7 +89,7 @@ namespace Controller
         public List<Model> SearchModel(Model model)
         {
 
-            SearchModelSO so = new SearchModelSO();
+            VratiModelePoKriterijumuSO so = new VratiModelePoKriterijumuSO();
             so.ExecuteTemplate(model);
             return so.Result;
         }
@@ -98,14 +98,14 @@ namespace Controller
 
         public void SaveStavkaRentiranja(StavkaRentiranja stavkaRentirnja)
         {
-            AddStavkaRentiranjaSO so = new AddStavkaRentiranjaSO();
+            ZapamtiStavkuRentiranjaSO so = new ZapamtiStavkuRentiranjaSO();
             so.ExecuteTemplate(stavkaRentirnja);
 
         }
 
         public void DeleteStavkaRentiranja(StavkaRentiranja stavkaRentiranja)
         {
-            DeleteStavkaRentiranjaSO so = new DeleteStavkaRentiranjaSO();
+            IzbrisiStavkaRentiranjaSO so = new IzbrisiStavkaRentiranjaSO();
             so.ExecuteTemplate(stavkaRentiranja);
         }
 
@@ -114,21 +114,21 @@ namespace Controller
 
         public List<Musterija> SearchMusterija(Musterija musterija)
         {
-            SearchMusterijaSO so = new SearchMusterijaSO();
+            VratiMusterijePoKriterijumuSO so = new VratiMusterijePoKriterijumuSO();
             so.ExecuteTemplate(musterija);
             return so.Result;
         }
 
         public List<Rentiranje> SearchRentiranje(Rentiranje rentiranje)
         {
-            SearchRentiranjeSO so = new SearchRentiranjeSO();
+            VratiRentiranjePoKriterijumuSO so = new VratiRentiranjePoKriterijumuSO();
             so.ExecuteTemplate(rentiranje);
             return so.Result;
         }
 
         public List<Automobil> SearchAutomobil(Automobil automobil)
         {
-            SearchAutomobilSO so = new SearchAutomobilSO();
+            VratiAutomobilePoKriterijumuSO so = new VratiAutomobilePoKriterijumuSO();
             so.ExecuteTemplate(automobil);
             return so.Result;
         }
@@ -141,57 +141,58 @@ namespace Controller
 
         public object GetAllMusterija()
         {
-            GetAllMusterijaSO so = new GetAllMusterijaSO();
+            UcitajListuMusterijaSO so = new UcitajListuMusterijaSO();
             so.ExecuteTemplate(new Musterija());
             return so.Result;
         }
 
         public void SaveRentiranje(Rentiranje rentiranje)
         {
-            AddRentiranjeSO so = new AddRentiranjeSO();
+            ZapamtiRentiranjeSO so = new ZapamtiRentiranjeSO();
             so.ExecuteTemplate(rentiranje);
         }
 
         public object GetAllPolisa()
         {
-            GetAllPolisaSO so = new GetAllPolisaSO();
+            UcitajListuPolisaSO so = new UcitajListuPolisaSO();
             so.ExecuteTemplate(new Polisa());
             return so.Result;
         }
 
         public void UpdateMusterija(Musterija musterija)
         {
-            UpdateMusterijaSO so = new UpdateMusterijaSO();
+            IzmeniMusterijuSO so = new IzmeniMusterijuSO();
             so.ExecuteTemplate(musterija);
             
         }
 
         public void UpdateRentiranje(Rentiranje rentiranje)
         {
-            UpdateRentiranjeSO so = new UpdateRentiranjeSO();
+            IzmeniRentiranjeSO so = new IzmeniRentiranjeSO();
             so.ExecuteTemplate(rentiranje);
 
         }
 
         public void UpdateAutomobil(Automobil automobil)
         {
-            UpdateAutomobilSO so = new UpdateAutomobilSO();
+           
+            IzmeniAutomobilSO so = new IzmeniAutomobilSO();
             so.ExecuteTemplate(automobil);
-
+ 
         }
 
 
 
         public object SearchStavkaReniranja(StavkaRentiranja stavkaRentiranja)
         {
-            SearchStavkaRentiranjaSO so = new SearchStavkaRentiranjaSO();
+            VratiStavkarentiranjaPoKriterijumuSO so = new VratiStavkarentiranjaPoKriterijumuSO();
             so.ExecuteTemplate(stavkaRentiranja);
             return so.Result;
         }
 
         public void DeleteAutomobil(Automobil automobil)
         {
-            DeleteAutomobilSO so = new DeleteAutomobilSO();
+            IzbrisiAutomobilSO so = new IzbrisiAutomobilSO();
             so.ExecuteTemplate(automobil);
 
         }

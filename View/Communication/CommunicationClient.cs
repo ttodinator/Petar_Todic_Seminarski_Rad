@@ -26,14 +26,15 @@ namespace View.Communication
             {
                 sender.Send(request);
             }
-            catch (IOException ex)
+            catch (IOException)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("Doslo je do greske sa serverom");
+                
             }
-            catch (SocketException ex)
+            catch (SocketException)
             {
-
-                throw new Exception(ex.Message);
+                
+                throw new Exception("Doslo je do greske sa serverom");
             }
         }
         public object GetResponseResult()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.RentiranjeSO
 {
-    public class UpdateRentiranjeSO : SystemOperationBase
+    public class IzmeniRentiranjeSO : SystemOperationBase
     {
         protected override void ExecuteOperation(IEntity entity)
         {

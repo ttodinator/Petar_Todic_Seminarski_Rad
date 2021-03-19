@@ -7,7 +7,7 @@ using Domain;
 
 namespace SystemOperation.MarkaSO
 {
-    public class GetAllMarkaSO:SystemOperationBase
+    public class VratiListuMarkiSO:SystemOperationBase
     {
         public List<Marka> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)

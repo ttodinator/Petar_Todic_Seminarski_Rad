@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.StavkaRentiranjaSO
 {
-    public class SearchStavkaRentiranjaSO : SystemOperationBase
+    public class VratiStavkarentiranjaPoKriterijumuSO : SystemOperationBase
     {
 
         public List<StavkaRentiranja> Result { get; set; }

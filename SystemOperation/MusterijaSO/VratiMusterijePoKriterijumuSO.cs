@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.MusterijaSO
 {
-    public class AddMusterijaSO : SystemOperationBase
+    public class VratiMusterijePoKriterijumuSO : SystemOperationBase
     {
+
+        public List<Musterija> Result { get; set; }
         protected override void ExecuteOperation(IEntity entity)
         {
             Musterija m = (Musterija)entity;
-            repository.Save(m);
+            Result= repository.GetAllWhere(m).Cast<Musterija>().ToList();
         }
     }
 }

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.RentiranjeSO
 {
-    public class GetRentiranjeIDSO : SystemOperationBase
+    public class VratiRentiranjePoKriterijumuSO : SystemOperationBase
     {
-        public int Result { get; set; }
+        public List<Rentiranje> Result { get; set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Result = repository.GetNewId((Rentiranje)entity);
+            Rentiranje r = (Rentiranje)entity;
+            Result = repository.GetAllWhere(r).Cast<Rentiranje>().ToList();
         }
     }
 }

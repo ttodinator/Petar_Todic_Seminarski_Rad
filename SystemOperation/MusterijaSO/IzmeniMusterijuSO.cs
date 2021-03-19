@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemOperation.MusterijaSO
 {
-    public class UpdateMusterijaSO : SystemOperationBase
+    public class IzmeniMusterijuSO : SystemOperationBase
     {
         protected override void ExecuteOperation(IEntity entity)
         {

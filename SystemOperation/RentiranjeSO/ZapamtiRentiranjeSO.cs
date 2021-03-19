@@ -8,7 +8,7 @@ using SystemOperation.StavkaRentiranjaSO;
 
 namespace SystemOperation.RentiranjeSO
 {
-    public class AddRentiranjeSO : SystemOperationBase
+    public class ZapamtiRentiranjeSO : SystemOperationBase
     {
         protected override void ExecuteOperation(IEntity entity)
         {
