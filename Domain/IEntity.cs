@@ -14,17 +14,14 @@ namespace Domain
         string IdName { get; }
         string JoinCondition { get; }
         string JoinTable { get; }
-
         string JoinCondition1 { get; }
         string JoinTable1 { get; }
-
         string JoinCondition2 { get; }
         string JoinTable2 { get; }
         string JoinCondition3 { get; }
         string JoinTable3 { get; }
         string TableAlias { get; }
         string SelectValues { get; }
-
         string Where { get; }
         string WhereCondition { get; }
         string WhereValue { get; set; }

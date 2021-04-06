@@ -18,10 +18,8 @@ namespace Domain
         public Rentiranje Rentiranje { get; set; }
         public DateTime DatumOd { get; set; }
         public DateTime DatumDo { get; set; }
-
         public Automobil Automobil { get; set; }
         public Polisa Polisa { get; set; }
-        
         [Browsable(false)]
         public string TableName => "StavkaRentiranja";
         [Browsable(false)]

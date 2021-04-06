@@ -16,7 +16,6 @@ namespace Domain
         public string KorisnickoIme { get; set; }
         [Browsable(false)]
         public string Lozinka { get; set; }
-
         [Browsable(false)]
         public string TableName => "Zaposleni";
         [Browsable(false)]
@@ -32,7 +31,6 @@ namespace Domain
         [Browsable(false)]
         public string SelectValues => "*";
         [Browsable(false)]
-
         public string WhereCondition => "";
         [Browsable(false)]
         public string WhereValue { get => ""; set => throw new NotImplementedException(); }

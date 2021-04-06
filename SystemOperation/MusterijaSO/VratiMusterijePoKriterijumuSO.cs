@@ -13,8 +13,8 @@ namespace SystemOperation.MusterijaSO
         public List<Musterija> Result { get; set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Musterija m = (Musterija)entity;
-            Result= repository.GetAllWhere(m).Cast<Musterija>().ToList();
+            //Musterija m = (Musterija)entity;
+            Result= repository.GetAllWhere(entity).Cast<Musterija>().ToList();
         }
     }
 }

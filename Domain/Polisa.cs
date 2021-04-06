@@ -15,38 +15,22 @@ namespace Domain
         public double CenaPoDanu { get; set; }
         public string Opis { get; set; }
         public string TableName => "Polisa";
-
         public string InsertValues => throw new NotImplementedException();
-
         public string IdName => "ID";
-
         public string JoinCondition => "";
-
         public string JoinTable => "";
-
         public string JoinCondition1 => "";
-
         public string JoinTable1 => "";
-
         public string TableAlias => "p";
-
         public string SelectValues => "*";
-
         public string Where => "";
-
         public string WhereCondition => "";
-
         public string WhereValue { get => ""; set => throw new NotImplementedException(); }
         public string UpdateText { get => ""; set => throw new NotImplementedException(); }
-
         public string JoinCondition2 => "";
-
         public string JoinTable2 => "";
-
         public string JoinCondition3 => "";
-
         public string JoinTable3 => "";
-
         public override string ToString()
         {
             return $"{Naziv} {CenaPoDanu}";

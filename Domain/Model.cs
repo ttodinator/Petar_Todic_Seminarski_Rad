@@ -15,40 +15,22 @@ namespace Domain
         public string Verzija { get; set; }
         public Marka Marka { get; set; }
         public string TableName => "Model";
-
         public string InsertValues => $"{Marka.Id},'{Naziv}','{Verzija}'";
-
         public string IdName => "ID";
-
         public string JoinCondition => "on (m.MarkaID=ma.ID)";
-
         public string JoinTable => "join Marka ma";
-
         public string TableAlias => "m";
-
         public string SelectValues => "*";
-
-
         public string WhereCondition => "ma.Naziv=";
-
         public string WhereValue { get; set; }
-
         public string Where => "where";
-
         public string JoinCondition1 => "";
-
         public string JoinTable1 => "";
-
         public string UpdateText { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
         public string JoinCondition2 => "";
-
         public string JoinTable2 => "";
-
         public string JoinCondition3 => "";
-
         public string JoinTable3 => "";
-
         public override string ToString()
         {
             return $"{Naziv} {Verzija}";

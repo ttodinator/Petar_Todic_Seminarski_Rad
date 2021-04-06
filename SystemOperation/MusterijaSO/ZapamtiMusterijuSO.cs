@@ -11,8 +11,8 @@ namespace SystemOperation.MusterijaSO
     {
         protected override void ExecuteOperation(IEntity entity)
         {
-            Musterija m = (Musterija)entity;
-            repository.Save(m);
+            //Musterija m = (Musterija)entity;
+            repository.Save(entity);
         }
     }
 }
