@@ -12,9 +12,9 @@ namespace SystemOperation.ModelSO
         public List<Model> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Model m = (Model)entity;
-            entity.WhereValue = m.Marka.Naziv;
-            Result = repository.GetAllWhere((Model)entity).Cast<Model>().ToList();
+            //Model m = (Model)entity;
+            //entity.WhereValue = m.Marka.Naziv;
+            Result = repository.GetAllWhere(entity).Cast<Model>().ToList();
         }
     }
 }

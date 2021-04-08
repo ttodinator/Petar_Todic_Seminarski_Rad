@@ -12,7 +12,7 @@ namespace SystemOperation.PolisaSO
         public List<Polisa> Result = new List<Polisa>();
         protected override void ExecuteOperation(IEntity entity)
         {
-            Result = repository.GetAll(new Polisa()).Cast<Polisa>().ToList();
+            Result = repository.GetAll(entity).Cast<Polisa>().ToList();
         }
     }
 }

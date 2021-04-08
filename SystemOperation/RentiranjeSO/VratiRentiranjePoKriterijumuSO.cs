@@ -12,8 +12,8 @@ namespace SystemOperation.RentiranjeSO
         public List<Rentiranje> Result { get; set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Rentiranje r = (Rentiranje)entity;
-            Result = repository.GetAllWhere(r).Cast<Rentiranje>().ToList();
+            //Rentiranje r = (Rentiranje)entity;
+            Result = repository.GetAllWhere(entity).Cast<Rentiranje>().ToList();
         }
     }
 }

@@ -13,8 +13,8 @@ namespace SystemOperation.AutomobilSO
 
         protected override void ExecuteOperation(IEntity entity)
         {
-            Automobil a = (Automobil)entity;
-            Result = repository.GetAllWhere(a).Cast<Automobil>().ToList();
+            //Automobil a = (Automobil)entity;
+            Result = repository.GetAllWhere(entity).Cast<Automobil>().ToList();
         }
     }
 }

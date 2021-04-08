@@ -58,7 +58,6 @@ namespace View.Controller
         internal void Save(UCAddAutomobil uCAddAutomobil)
         {
             if (!UserControlHelpers.RegistrationValidation(uCAddAutomobil.TxtRegistracija,uCAddAutomobil.LblRegistracija)
-                | !UserControlHelpers.DoubleValidation(uCAddAutomobil.TxtCenaPoDanu,uCAddAutomobil.LblCenaPoDanu)
                 | !UserControlHelpers.VINNumberValidation(uCAddAutomobil.TxtBrojSasije,uCAddAutomobil.LblBrojSasije)
                 | !UserControlHelpers.ComboBoxValidation(uCAddAutomobil.CbMarka,uCAddAutomobil.LblMarka)
                 | !UserControlHelpers.ComboBoxValidation(uCAddAutomobil.CbModel,uCAddAutomobil.LblModel)
@@ -69,23 +68,25 @@ namespace View.Controller
             }
             try
             {
+                string k = CommaConversion(uCAddAutomobil.TxtCenaPoDanu.Text);
+                Model model = (Model)uCAddAutomobil.CbModel.SelectedItem;
                 Automobil a = new Automobil
                 {
-                    BrojSasije = uCAddAutomobil.TxtBrojSasije.Text,
+                    /*BrojSasije = uCAddAutomobil.TxtBrojSasije.Text,
                     Registracija = uCAddAutomobil.TxtRegistracija.Text,
-                    CenaPoDanu = double.Parse(uCAddAutomobil.TxtCenaPoDanu.Text),
                     Model = (Model)uCAddAutomobil.CbModel.SelectedItem,
-                    GodinaProizvodnje = (int)uCAddAutomobil.CbGodiste.SelectedItem,
+                    GodinaProizvodnje = (int)uCAddAutomobil.CbGodiste.SelectedItem,*/
                     WhereCondition="a.BrojSasije=",
-                    WhereValue= uCAddAutomobil.TxtBrojSasije.Text
+                    WhereValue= uCAddAutomobil.TxtBrojSasije.Text,
+                    InsertValues = $"'{uCAddAutomobil.TxtBrojSasije.Text}','{uCAddAutomobil.TxtRegistracija.Text}',{(int)uCAddAutomobil.CbGodiste.SelectedItem},{k},{model.Id}"
 
                 };
 
-                List<Automobil> automobilBrSasije;
+                /*List<Automobil> automobilBrSasije;
                 if (Communication.Communication.Instance.SearchAutomobilBrSasije(a))
                 {
                     Communication.Communication.Instance.SaveAutomobil(a);
-                    System.Windows.Forms.MessageBox.Show("Automobil je sacuvan");
+                    System.Windows.Forms.MessageBox.Show("Automobil je uspesno sacuvan");
                     ResetForm(uCAddAutomobil);
                 }
                 else
@@ -93,7 +94,11 @@ namespace View.Controller
                     automobilBrSasije = Communication.Communication.Instance.SearchAutomobil(a);
                     System.Windows.Forms.MessageBox.Show("Vec postoji automobil sa ovim brojem sasije");
                     return;
-                }
+                }*/
+                Communication.Communication.Instance.SaveAutomobil(a);
+                System.Windows.Forms.MessageBox.Show("Automobil je uspesno sacuvan");
+                ResetForm(uCAddAutomobil);
+
             }
             catch (Exception ex)
             {
@@ -112,6 +117,8 @@ namespace View.Controller
                     return;
                 }
                 Automobil a = (Automobil)uCUpdateAutomobil.ComboBox.SelectedItem;
+                a.WhereCondition = "BrojSasije=";
+                a.WhereValue = $"'{a.BrojSasije}'";
                 /*try
                 {
                     Communication.Communication.Instance.DeleteAutomobil(a);
@@ -145,7 +152,6 @@ namespace View.Controller
             if(!UserControlHelpers.ComboBoxValidation(uCUpdateAutomobil.CbMarka,uCUpdateAutomobil.LblMarka)
                 | !UserControlHelpers.ComboBoxValidation(uCUpdateAutomobil.CbModel,uCUpdateAutomobil.LblModel)
                 | !UserControlHelpers.RegistrationValidation(uCUpdateAutomobil.TxtRegistracijaUpdate,uCUpdateAutomobil.LblRegistracija)
-                | !UserControlHelpers.DoubleValidation(uCUpdateAutomobil.TxtCenaUpdate,uCUpdateAutomobil.LblCenaPoDanu)
 
                 )
             {
@@ -153,14 +159,21 @@ namespace View.Controller
             }
             try
             {
+                string k = CommaConversion(uCUpdateAutomobil.TxtCenaUpdate.Text);
+                Model model = (Model)uCUpdateAutomobil.CbModel.SelectedItem;
                 Automobil a = new Automobil
                 {
-                    BrojSasije=uCUpdateAutomobil.BrojSasije,
+                    /*BrojSasije=uCUpdateAutomobil.BrojSasije,
                     Registracija=uCUpdateAutomobil.TxtRegistracijaUpdate.Text,
                     CenaPoDanu=double.Parse(uCUpdateAutomobil.TxtCenaUpdate.Text),
                     GodinaProizvodnje=(int)uCUpdateAutomobil.CbGodiste.SelectedItem,
-                    Model=(Model)uCUpdateAutomobil.CbModel.SelectedItem
-                };
+                    Model=(Model)uCUpdateAutomobil.CbModel.SelectedItem*/
+                    WhereCondition = "BrojSasije=",
+                    WhereValue = $"'{uCUpdateAutomobil.BrojSasije}'",
+                    UpdateText = $"Registracija='{uCUpdateAutomobil.TxtRegistracijaUpdate.Text}',GodinaProizvodnje={(int)uCUpdateAutomobil.CbGodiste.SelectedItem},CenaPoDanu={k},ModelID={model.Id}"
+
+
+            };
                 Communication.Communication.Instance.UpdateAutomobil(a);
                 System.Windows.Forms.MessageBox.Show("Automobil uspesno sacuvan");
                 ResetForm(uCUpdateAutomobil);
@@ -329,6 +342,7 @@ namespace View.Controller
         {
             try
             {
+                
                 uCAddAutomobil.CbModel.DataSource = Communication.Communication.Instance.GetAllModel((Marka)uCAddAutomobil.CbMarka.SelectedItem);
 
             }
@@ -351,6 +365,7 @@ namespace View.Controller
             uCAddAutomobil.LblRegistracija.Text = "";
             uCAddAutomobil.LblGodinaProizvodnje.Text = "";
             uCAddAutomobil.CbModel.DataSource = null;
+            InitUCAddAutomobil(uCAddAutomobil);
 
         }
 
@@ -367,6 +382,16 @@ namespace View.Controller
             uCUpdateAutomobil.LblCenaPoDanu.Text = "";
             uCUpdateAutomobil.LblRegistracija.Text = "";
             uCUpdateAutomobil.LblGodiste.Text = "";
+            InitUCUpdateAutomobil(uCUpdateAutomobil);
+        }
+
+        internal string CommaConversion(string s)
+        {
+            if (s.Contains(","))
+            {
+                return s.Replace(",", ".");
+            }
+            return s;
         }
 
     }

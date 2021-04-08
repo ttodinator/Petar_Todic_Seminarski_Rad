@@ -12,7 +12,7 @@ namespace SystemOperation.MarkaSO
         public List<Marka> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Result = repository.GetAll(new Marka()).Cast<Marka>().ToList();
+            Result = repository.GetAll(entity).Cast<Marka>().ToList();
         }
     }
 }

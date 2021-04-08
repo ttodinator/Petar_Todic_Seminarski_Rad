@@ -66,5 +66,10 @@ namespace Storage.Implementation.Database
         {
             broker.Update(entity);
         }
+
+        public bool Exist(IEntity entity)
+        {
+            return broker.Exist(entity);
+        }
     }
 }

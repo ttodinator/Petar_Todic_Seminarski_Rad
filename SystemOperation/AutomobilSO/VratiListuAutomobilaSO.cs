@@ -12,7 +12,7 @@ namespace SystemOperation.AutomobilSO
         public List<Automobil> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Result = repository.GetAll(new Automobil()).Cast<Automobil>().ToList();
+            Result = repository.GetAll(entity).Cast<Automobil>().ToList();
         }
     }
 }

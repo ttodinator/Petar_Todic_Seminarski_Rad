@@ -13,7 +13,7 @@ namespace SystemOperation.MusterijaSO
         public List<Musterija> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Result = repository.GetAll(new Musterija()).Cast<Musterija>().ToList();
+            Result = repository.GetAll(entity).Cast<Musterija>().ToList();
         }
     }
 }

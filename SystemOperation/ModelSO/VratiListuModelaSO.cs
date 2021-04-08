@@ -12,7 +12,7 @@ namespace SystemOperation.ModelSO
         public List<Model> Result { get; private set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            Result = repository.GetAll(new Model()).Cast<Model>().ToList();
+            Result = repository.GetAll(entity).Cast<Model>().ToList();
         }
     }
 }

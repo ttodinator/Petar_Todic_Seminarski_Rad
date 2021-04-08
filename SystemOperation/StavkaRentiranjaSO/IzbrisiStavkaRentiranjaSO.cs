@@ -11,10 +11,10 @@ namespace SystemOperation.StavkaRentiranjaSO
     {
         protected override void ExecuteOperation(IEntity entity)
         {
-            StavkaRentiranja sr = (StavkaRentiranja)entity;
+            /*StavkaRentiranja sr = (StavkaRentiranja)entity;
             sr.WhereCondition = "ID=";
-            sr.WhereValue = $"{sr.Id}";
-            repository.Delete(sr);
+            sr.WhereValue = $"{sr.Id}";*/
+            repository.Delete(entity);
         }
     }
 }

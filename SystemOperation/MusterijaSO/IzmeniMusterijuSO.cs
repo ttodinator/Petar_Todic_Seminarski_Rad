@@ -11,11 +11,12 @@ namespace SystemOperation.MusterijaSO
     {
         protected override void ExecuteOperation(IEntity entity)
         {
-            Musterija m = (Musterija)entity;
+            /*Musterija m = (Musterija)entity;
             m.WhereCondition = "JMBG=";
             m.WhereValue = $"'{m.JMBG}'";
             m.UpdateText = $"Ime='{m.Ime}',Prezime='{m.Prezime}', BrojTelefona='{m.BrojTelefona}', DatumRodjenja='{m.DatumRodjenja.ToString("MM/dd/yyyy")}'";
-            repository.Update(m);
+            */
+            repository.Update(entity);
         }
     }
 }

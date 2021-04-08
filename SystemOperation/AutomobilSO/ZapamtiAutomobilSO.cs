@@ -11,21 +11,24 @@ namespace SystemOperation.AutomobilSO
     {
         protected override void ExecuteOperation(IEntity entity)
         {
-
-            Automobil a = (Automobil)entity;
-            string k = CommaConversion(a.CenaPoDanu.ToString());
-            a.InsertValues = $"'{a.BrojSasije}','{a.Registracija}',{a.GodinaProizvodnje},{k},{a.Model.Id}";
-            repository.Save(a);
-        }
-
-        private string CommaConversion(string s)
-        {
-            if (s.Contains(","))
+            
+            if (repository.Exist(entity))
             {
-                return s.Replace(",", ".");
+                
+                throw new Exception("Vec postoji automobil sa ovim brojem sasije");
             }
-            return s;
+            else
+            {
+                //Automobil a = (Automobil)entity;
+                //string k = CommaConversion(a.CenaPoDanu.ToString());
+                //a.InsertValues = $"'{a.BrojSasije}','{a.Registracija}',{a.GodinaProizvodnje},{k},{a.Model.Id}";
+                repository.Save(entity);
+            }
+
+
+
         }
+
     }
 
 

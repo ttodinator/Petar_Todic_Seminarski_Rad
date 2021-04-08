@@ -36,7 +36,7 @@ namespace View.Controller
                     WhereCondition="m.JMBG=",
                     WhereValue= UCAddMusterija.TxtJMBG.Text
                 };
-                List<Musterija> musterijaJMBG;
+                /*List<Musterija> musterijaJMBG;
                 if (Communication.Communication.Instance.SearchMusterijaJMBG(m))
                 {
                     Communication.Communication.Instance.SaveMusterija(m);
@@ -48,7 +48,11 @@ namespace View.Controller
                     musterijaJMBG = Communication.Communication.Instance.SearchMusterija(m);
                     System.Windows.Forms.MessageBox.Show("Musterija vec postoji u bazi");
                     return;
-                }
+                }*/
+                Communication.Communication.Instance.SaveMusterija(m);
+                System.Windows.Forms.MessageBox.Show("Musterija uspesno sacuvana");
+                ResetForm(UCAddMusterija);
+
             }
             catch (Exception ex)
             {
@@ -75,12 +79,16 @@ namespace View.Controller
             {
                 Musterija m = new Musterija
                 {
-                    JMBG = uCUpdateMusterija.JMBG,
+                    /*JMBG = uCUpdateMusterija.JMBG,
                     Ime = uCUpdateMusterija.TxtImeUpdate.Text,
                     Prezime = uCUpdateMusterija.TxtPrezimeUpdate.Text,
                     BrojTelefona = uCUpdateMusterija.TxtBrojTelefonaUpdate.Text,
-                    DatumRodjenja = uCUpdateMusterija.DtpDatumUpdate.Value
-                };
+                    DatumRodjenja = uCUpdateMusterija.DtpDatumUpdate.Value*/
+                    WhereCondition = "JMBG=",
+                    WhereValue = $"'{uCUpdateMusterija.JMBG}'",
+                    UpdateText = $"Ime='{uCUpdateMusterija.TxtImeUpdate.Text}',Prezime='{uCUpdateMusterija.TxtPrezimeUpdate.Text}', BrojTelefona='{uCUpdateMusterija.TxtBrojTelefonaUpdate.Text}', DatumRodjenja='{uCUpdateMusterija.DtpDatumUpdate.Value.ToString("MM/dd/yyyy")}'"
+
+            };
                 Communication.Communication.Instance.UpdateMusterija(m);
                 System.Windows.Forms.MessageBox.Show("Musterija uspesno izmenjena");
                 ResetForm(uCUpdateMusterija);
@@ -254,6 +262,9 @@ namespace View.Controller
 
         internal void ResetForm(UCUpdateMusterija uCUpdateMusterija)
         {
+            uCUpdateMusterija.CbMusterije.DataSource = null;
+            uCUpdateMusterija.TxtIme.Clear();
+            uCUpdateMusterija.TxtPrezime.Clear();
             uCUpdateMusterija.TxtImeUpdate.Clear();
             uCUpdateMusterija.TxtPrezimeUpdate.Clear();
             uCUpdateMusterija.TxtBrojTelefonaUpdate.Clear();

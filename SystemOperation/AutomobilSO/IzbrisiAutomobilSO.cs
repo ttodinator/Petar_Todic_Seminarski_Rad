@@ -11,10 +11,10 @@ namespace SystemOperation.AutomobilSO
     {
         protected override void ExecuteOperation(IEntity entity)
         {
-            Automobil a = (Automobil)entity;
+            /*Automobil a = (Automobil)entity;
             a.WhereCondition = "BrojSasije=";
-            a.WhereValue = $"'{a.BrojSasije}'";
-            repository.Delete(a);
+            a.WhereValue = $"'{a.BrojSasije}'";*/
+            repository.Delete(entity);
         }
     }
 }

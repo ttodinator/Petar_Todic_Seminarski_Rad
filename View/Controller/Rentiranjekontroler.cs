@@ -29,6 +29,7 @@ namespace View.Controller
                 uCAddRentiranje.CbMusterija.DataSource = Communication.Communication.Instance.GetAllMusterija();
                 DateTime dateTime = DateTime.Now;
                 uCAddRentiranje.LblDatumShow.Text = dateTime.ToString("MM/dd/yyyy");
+                uCAddRentiranje.LblUkupnaCena.Text = "0";
             }
             catch (Exception ex)
             {
@@ -134,20 +135,30 @@ namespace View.Controller
             }
             try
             {
+                Musterija m = (Musterija)uCUpdateRentiranje.CbMusterijaUpdate.SelectedItem;
+                string k = CommaConversion(GetUkupnaCena().ToString());
                 Rentiranje r = new Rentiranje
                 {
                     Id = RentiranjeId,
                     Musterija = (Musterija)uCUpdateRentiranje.CbMusterijaUpdate.SelectedItem,
                     Datum = DateTime.Now,
                     UkupnaCena = GetUkupnaCena(),
-                    StavkeRentiranja = stavkeRentiranja.ToList()
-                };
+                    StavkeRentiranja = stavkeRentiranja.ToList(),
+                    WhereCondition = "ID=",
+                    WhereValue = $"{RentiranjeId}",
+                    UpdateText = $"JMBG='{m.JMBG}',Datum='{DateTime.Now.ToString("MM/dd/yyyy")}',UkupnaCena={k}"
+
+
+
+            };
                 //Communication.Communication.Instance.UpdateRentiranje(r);
 
                 if (stavkeRentiranjaUpdateDeletion.Count > 0)
                 {
                     for (int i = 0; i < stavkeRentiranjaUpdateDeletion.Count; i++)
                     {
+                        stavkeRentiranjaUpdateDeletion[i].WhereCondition = "ID=";
+                        stavkeRentiranjaUpdateDeletion[i].WhereValue = $"{stavkeRentiranjaUpdateDeletion[i].Id}";
                         Communication.Communication.Instance.DeleteStavkaRentiranja(stavkeRentiranjaUpdateDeletion[i]);
                     }
                 }
@@ -156,6 +167,7 @@ namespace View.Controller
                 stavkeRentiranja.Clear();
                 uCUpdateRentiranje.CbPretraga.DataSource = null;
                 uCUpdateRentiranje.TxtPretragaImePrezime.Text = "";
+                InitUCUpdateRentiranje();
             }
             catch (Exception ex)
             {
@@ -218,6 +230,7 @@ namespace View.Controller
                 uCUpdateRentiranje.CbMusterijaUpdate.DataSource = Communication.Communication.Instance.GetAllMusterija();
                 DateTime dateTime = DateTime.Now;
                 uCUpdateRentiranje.LblDatumShow.Text = dateTime.ToString("MM/dd/yyyy");
+                uCUpdateRentiranje.LblUkupnaCena.Text = "0";
             }
             catch (Exception ex)
             {
@@ -313,18 +326,22 @@ namespace View.Controller
             }
             try
             {
+                string k = CommaConversion(GetUkupnaCena().ToString());
+                Musterija m = (Musterija)uCAddRentiranje.CbMusterija.SelectedItem;
                 Rentiranje r = new Rentiranje
                 {
-                    Musterija = (Musterija)uCAddRentiranje.CbMusterija.SelectedItem,
+                    Musterija = m,
                     Datum = DateTime.Now,
                     //StavkeRentiranja = stavkeRentiranja.ToList(),
                     UkupnaCena = GetUkupnaCena(),
-                    StavkeRentiranja = stavkeRentiranja.ToList()
+                    StavkeRentiranja = stavkeRentiranja.ToList(),
+                    InsertValues = $"'{m.JMBG}','{DateTime.Now.ToString("MM/dd/yyyy")}',{k}"
                 };
 
                 Communication.Communication.Instance.SaveRentiranje(r);
                 MessageBox.Show("Rentiranje je uspesno sacuvano");
                 stavkeRentiranja.Clear();
+                InitUCAddRentiranje(uCAddRentiranje);
             }
             catch (Exception ex)
             {
@@ -347,6 +364,15 @@ namespace View.Controller
                 ukupnaCena += (sr.DatumDo - sr.DatumOd).TotalDays * (sr.Automobil.CenaPoDanu + sr.Polisa.CenaPoDanu);
             }
             return Math.Round(ukupnaCena,2);
+        }
+
+        private string CommaConversion(string s)
+        {
+            if (s.Contains(","))
+            {
+                return s.Replace(",", ".");
+            }
+            return s;
         }
 
     }

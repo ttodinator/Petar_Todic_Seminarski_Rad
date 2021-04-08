@@ -111,7 +111,9 @@ namespace View.Communication
                     Rentiranje = new Rentiranje
                     {
                         Id = rentiranjeId
-                    }
+                    },
+                    WhereCondition = "sr.RentiranjeID=",
+                    WhereValue = rentiranjeId.ToString()
                 }
             };
 
@@ -219,7 +221,10 @@ namespace View.Communication
             Request request = new Request()
             {
                 Operation = Operation.GetAllModelWhere,
-                RequestObject = new Model { Marka=marka}
+                RequestObject = new Model { 
+                    Marka=marka,
+                    WhereValue=marka.Naziv
+                }
             };
             client.SendRequest(request);
             return (List<Model>)client.GetResponseResult();

@@ -12,10 +12,11 @@ namespace SystemOperation.RentiranjeSO
         protected override void ExecuteOperation(IEntity entity)
         {
             Rentiranje r = (Rentiranje)entity;
-            r.WhereCondition = "ID=";
+            /*r.WhereCondition = "ID=";
             r.WhereValue = $"{r.Id}";
             r.UpdateText = $"JMBG='{r.Musterija.JMBG}',Datum='{r.Datum.ToString("MM/dd/yyyy")}',UkupnaCena={CommaConversion(r.UkupnaCena.ToString())}";
-            repository.Update(r);
+            */
+            repository.Update(entity);
             for (int i = 0; i < r.StavkeRentiranja.Count; i++)
             {
                 r.StavkeRentiranja[i].Rentiranje = r;

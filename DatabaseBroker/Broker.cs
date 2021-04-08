@@ -59,6 +59,8 @@ namespace DatabaseBroker
             transaction?.Commit();
         }
 
+
+
         public void Rollback()
         {
             transaction?.Rollback();
@@ -137,6 +139,21 @@ namespace DatabaseBroker
             else
             {
                 return (int)result;
+            }
+        }
+
+        public bool Exist(IEntity entity)
+        {
+            SqlCommand command = new SqlCommand("", connection, transaction);
+            command.CommandText = $"select {entity.SelectValues} from {entity.TableName} {entity.TableAlias} {entity.JoinTable} {entity.JoinCondition} {entity.JoinTable1} {entity.JoinCondition1} {entity.JoinTable2} {entity.JoinCondition2} {entity.JoinTable3} {entity.JoinCondition3} {entity.Where} {entity.WhereCondition}'{entity.WhereValue}'";
+            object result = command.ExecuteScalar();
+            if(result==null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

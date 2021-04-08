@@ -11,8 +11,19 @@ namespace SystemOperation.MusterijaSO
     {
         protected override void ExecuteOperation(IEntity entity)
         {
+            
+            if (repository.Exist(entity))
+            {
+                throw new Exception("Musterija vec postoji u bazi");
+                
+            }
+            else
+            {
+
+                repository.Save(entity);
+            }
             //Musterija m = (Musterija)entity;
-            repository.Save(entity);
+            //repository.Save(entity);
         }
     }
 }

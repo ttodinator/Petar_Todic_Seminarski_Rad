@@ -13,10 +13,10 @@ namespace SystemOperation.StavkaRentiranjaSO
         public List<StavkaRentiranja> Result { get; set; }
         protected override void ExecuteOperation(IEntity entity)
         {
-            StavkaRentiranja sr = (StavkaRentiranja)entity;
+            /*StavkaRentiranja sr = (StavkaRentiranja)entity;
             sr.WhereCondition = "sr.RentiranjeID=";
-            sr.WhereValue = sr.Rentiranje.Id.ToString();
-            Result = repository.GetAllWhere(sr).Cast<StavkaRentiranja>().ToList();
+            sr.WhereValue = sr.Rentiranje.Id.ToString();*/
+            Result = repository.GetAllWhere(entity).Cast<StavkaRentiranja>().ToList();
         }
     }
 }
